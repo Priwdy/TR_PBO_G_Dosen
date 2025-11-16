@@ -68,7 +68,6 @@ public class Mahasiswa extends javax.swing.JFrame {
         Jadwal = new javax.swing.JButton();
         Registrasi = new javax.swing.JButton();
         KartuStudi = new javax.swing.JButton();
-        KartuStudi1 = new javax.swing.JButton();
         KartuStudi2 = new javax.swing.JButton();
         KartuStudi3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -79,7 +78,7 @@ public class Mahasiswa extends javax.swing.JFrame {
 
         LogoSiasat.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         LogoSiasat.setForeground(new java.awt.Color(255, 255, 255));
-        LogoSiasat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/logo.gif"))); // NOI18N
+        LogoSiasat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pic/Icon (1).gif"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -95,7 +94,7 @@ public class Mahasiswa extends javax.swing.JFrame {
 
         PanelBio.setBackground(new java.awt.Color(255, 255, 255));
 
-        HomeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Home.jpg"))); // NOI18N
+        HomeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pic/Home.jpg"))); // NOI18N
 
         TextHome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         TextHome.setForeground(new java.awt.Color(0, 0, 0));
@@ -236,27 +235,6 @@ public class Mahasiswa extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(KarenaPentingnya))
                     .addGroup(PanelBioLayout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NoHandphone, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NomerRekening)
-                            .addComponent(Bank, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AtasNamaRekening, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(HubungannDenganRekening))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelBioLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(Form6, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(TombolSimpan)
-                            .addComponent(Form7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Form8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Form4, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Form5, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Form3, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(PanelBioLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(DemiKelancaran, javax.swing.GroupLayout.PREFERRED_SIZE, 1023, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelBioLayout.createSequentialGroup()
@@ -266,16 +244,38 @@ public class Mahasiswa extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addComponent(UntukKeperluan, javax.swing.GroupLayout.PREFERRED_SIZE, 763, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelBioLayout.createSequentialGroup()
-                        .addGap(69, 69, 69)
+                        .addGap(116, 116, 116)
                         .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NoKeluarga, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NIK, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TempatTanggalLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
-                        .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Form2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Form1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Semarang, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(PanelBioLayout.createSequentialGroup()
+                                .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(NoHandphone, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(NomerRekening)
+                                    .addComponent(Bank, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(AtasNamaRekening, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(HubungannDenganRekening))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanelBioLayout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(Form6, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(TombolSimpan)
+                                    .addComponent(Form7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Form8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Form4, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Form5, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Form3, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(PanelBioLayout.createSequentialGroup()
+                                .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(NoKeluarga, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(NIK, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TempatTanggalLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Form2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Semarang, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Form1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         PanelBioLayout.setVerticalGroup(
@@ -294,7 +294,7 @@ public class Mahasiswa extends javax.swing.JFrame {
                     .addComponent(KarenaPentingnya))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Keabsahan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(30, 30, 30)
                 .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TempatTanggalLahir)
                     .addComponent(Semarang))
@@ -336,7 +336,7 @@ public class Mahasiswa extends javax.swing.JFrame {
                 .addComponent(DemiKelancaran)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BagianAdministrasi)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         PanelMenu.setBackground(new java.awt.Color(51, 51, 51));
@@ -351,14 +351,32 @@ public class Mahasiswa extends javax.swing.JFrame {
         });
 
         Jadwal.setText("Jadwal");
+        Jadwal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JadwalActionPerformed(evt);
+            }
+        });
 
         Registrasi.setText("Registrasi");
+        Registrasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrasiActionPerformed(evt);
+            }
+        });
 
         KartuStudi.setText("Kartu Studi");
-
-        KartuStudi1.setText("Tagihan");
+        KartuStudi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KartuStudiActionPerformed(evt);
+            }
+        });
 
         KartuStudi2.setText("Transkip Nilai");
+        KartuStudi2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KartuStudi2ActionPerformed(evt);
+            }
+        });
 
         KartuStudi3.setText("Lupa Password");
 
@@ -372,7 +390,6 @@ public class Mahasiswa extends javax.swing.JFrame {
                     .addComponent(KartuStudi3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(KartuStudi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(KartuStudi2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(KartuStudi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Jadwal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Registrasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Home, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -383,19 +400,17 @@ public class Mahasiswa extends javax.swing.JFrame {
             .addGroup(PanelMenuLayout.createSequentialGroup()
                 .addGap(96, 96, 96)
                 .addComponent(Home)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Registrasi)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Jadwal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(KartuStudi1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(KartuStudi2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(KartuStudi)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(KartuStudi3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(57, 57, 57))
         );
 
         jButton1.setBackground(new java.awt.Color(255, 0, 0));
@@ -440,7 +455,7 @@ public class Mahasiswa extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BebanSks)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PanelBio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -478,43 +493,70 @@ public class Mahasiswa extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new Login().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void HomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeActionPerformed
         // TODO add your handling code here:
+        new Mahasiswa().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_HomeActionPerformed
-
-    private void Form6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Form6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Form6ActionPerformed
-
-    private void Form3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Form3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Form3ActionPerformed
-
-    private void Form5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Form5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Form5ActionPerformed
-
-    private void Form4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Form4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Form4ActionPerformed
-
-    private void Form1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Form1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Form1ActionPerformed
 
     private void Form2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Form2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Form2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void Form1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Form1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_Form1ActionPerformed
+
+    private void Form4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Form4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Form4ActionPerformed
+
+    private void Form5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Form5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Form5ActionPerformed
+
+    private void Form3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Form3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Form3ActionPerformed
+
+    private void Form6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Form6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Form6ActionPerformed
+
+    private void JadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JadwalActionPerformed
+        // TODO add your handling code here:
+        new Jadwal().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_JadwalActionPerformed
+
+    private void KartuStudi2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KartuStudi2ActionPerformed
+        // TODO add your handling code here:
+        new TranskipNilai().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_KartuStudi2ActionPerformed
+
+    private void RegistrasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrasiActionPerformed
+        // TODO add your handling code here:
+        new Registrasi().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_RegistrasiActionPerformed
+
+    private void KartuStudiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KartuStudiActionPerformed
+        // TODO add your handling code here:
+        new KartuStudi().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_KartuStudiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -562,7 +604,6 @@ public class Mahasiswa extends javax.swing.JFrame {
     private javax.swing.JButton Jadwal;
     private javax.swing.JLabel KarenaPentingnya;
     private javax.swing.JButton KartuStudi;
-    private javax.swing.JButton KartuStudi1;
     private javax.swing.JButton KartuStudi2;
     private javax.swing.JButton KartuStudi3;
     private javax.swing.JLabel Keabsahan;

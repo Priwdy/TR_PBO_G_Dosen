@@ -103,10 +103,9 @@ public class Login extends javax.swing.JFrame {
         Keterangan6.setText("6. Perhatikan Jadwal Registrasi Ulang dan Jadwal Registrasi Matakuliah Anda. ");
 
         LogoSiasat.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        LogoSiasat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/logo.gif"))); // NOI18N
+        LogoSiasat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pic/Icon (1).gif"))); // NOI18N
 
-        LaguLampu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/logonew.gif"))); // NOI18N
-        LaguLampu.setPreferredSize(new java.awt.Dimension(199, 199));
+        LaguLampu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pic/logonew.gif"))); // NOI18N
 
         javax.swing.GroupLayout Panel1Layout = new javax.swing.GroupLayout(Panel1);
         Panel1.setLayout(Panel1Layout);
@@ -130,10 +129,10 @@ public class Login extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Panel1Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
-                        .addComponent(LaguLampu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LaguLampu)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Keterangan1, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
+                            .addComponent(Keterangan1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Keterangan2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Keterangan3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Keterangan4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -178,7 +177,7 @@ public class Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Keterangan6))
                     .addComponent(LaguLampu, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -197,7 +196,7 @@ public class Login extends javax.swing.JFrame {
 
     private void TombolLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TombolLoginActionPerformed
         // TODO add your handling code here:
-    String user = NimText.getText();
+  String user = NimText.getText();
     String pass = String.valueOf(PasswordText.getPassword());
 
     if (user.equals("672024101") && pass.equals("ganteng")) {
@@ -215,10 +214,20 @@ public class Login extends javax.swing.JFrame {
         dsn.setVisible(true);
 
         this.dispose();
-    }
-    
-    else {
-        JOptionPane.showMessageDialog(this, "Username atau Password salah!");
+
+    } else if (user.equals("admin") && pass.equals("admin123")) {
+        JOptionPane.showMessageDialog(this, "LOGIN BERHASIL! SELAMAT DATANG ADMIN");
+
+        Admin admin = new Admin();
+        admin.setVisible(true);
+
+        this.dispose();
+
+    } else {
+        JOptionPane.showMessageDialog(this,
+                "Username atau Password salah!",
+                "Login Gagal",
+                JOptionPane.ERROR_MESSAGE);
     }
     
 

@@ -57,7 +57,7 @@ public class Admin extends javax.swing.JFrame {
 
         LogoSiasat.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         LogoSiasat.setForeground(new java.awt.Color(255, 255, 255));
-        LogoSiasat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/logo.gif"))); // NOI18N
+        LogoSiasat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pic/Icon (1).gif"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -73,7 +73,7 @@ public class Admin extends javax.swing.JFrame {
 
         PanelBio.setBackground(new java.awt.Color(255, 255, 255));
 
-        HomeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Home.jpg"))); // NOI18N
+        HomeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pic/Home.jpg"))); // NOI18N
 
         TextHome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         TextHome.setForeground(new java.awt.Color(0, 0, 0));
@@ -107,7 +107,7 @@ public class Admin extends javax.swing.JFrame {
         );
 
         IconDosenPanel.setBackground(new java.awt.Color(255, 255, 255));
-        IconDosenPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/IconAdmin.png"))); // NOI18N
+        IconDosenPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pic/IconAdmin.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -319,6 +319,8 @@ public class Admin extends javax.swing.JFrame {
 
     private void HomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeActionPerformed
         // TODO add your handling code here:
+        new Admin().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_HomeActionPerformed
 
     private void Mahasiswa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mahasiswa2ActionPerformed
@@ -326,8 +328,8 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_Mahasiswa2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        new Login().setVisible(true);
+        this.dispose();    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -79,7 +79,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Interface/logo.gif"/>
+              <Image iconType="3" name="/Pic/Icon (1).gif"/>
             </Property>
           </Properties>
         </Component>
@@ -248,7 +248,7 @@
                 <Component class="javax.swing.JLabel" name="HomeIcon">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Interface/Home.jpg"/>
+                      <Image iconType="3" name="/Pic/Home.jpg"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -328,7 +328,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Interface/IconAdmin.png"/>
+                      <Image iconType="3" name="/Pic/IconAdmin.png"/>
                     </Property>
                   </Properties>
                 </Component>

@@ -62,9 +62,6 @@ public class Dosen extends javax.swing.JFrame {
         Home = new javax.swing.JButton();
         Jadwal = new javax.swing.JButton();
         Registrasi = new javax.swing.JButton();
-        KartuStudi = new javax.swing.JButton();
-        KartuStudi1 = new javax.swing.JButton();
-        KartuStudi2 = new javax.swing.JButton();
         KartuStudi3 = new javax.swing.JButton();
         Log_out = new javax.swing.JButton();
 
@@ -74,7 +71,7 @@ public class Dosen extends javax.swing.JFrame {
 
         LogoSiasat.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         LogoSiasat.setForeground(new java.awt.Color(255, 255, 255));
-        LogoSiasat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/logo.gif"))); // NOI18N
+        LogoSiasat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pic/Icon (1).gif"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -90,7 +87,7 @@ public class Dosen extends javax.swing.JFrame {
 
         PanelBio.setBackground(new java.awt.Color(255, 255, 255));
 
-        HomeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Home.jpg"))); // NOI18N
+        HomeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pic/Home.jpg"))); // NOI18N
 
         TextHome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         TextHome.setForeground(new java.awt.Color(0, 0, 0));
@@ -124,7 +121,7 @@ public class Dosen extends javax.swing.JFrame {
         );
 
         IconDosenPanel.setBackground(new java.awt.Color(255, 255, 255));
-        IconDosenPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/IconDosen.png"))); // NOI18N
+        IconDosenPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pic/IconDosen.png"))); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setForeground(java.awt.Color.white);
@@ -296,16 +293,16 @@ public class Dosen extends javax.swing.JFrame {
                     .addComponent(TextHome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SelamatDatang)
-                .addGap(30, 30, 30)
-                .addComponent(SelamatDatangPortal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DataMahasiswa)
                 .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelBioLayout.createSequentialGroup()
-                        .addGap(59, 59, 59)
+                        .addGap(127, 127, 127)
                         .addComponent(Panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelBioLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(SelamatDatangPortal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DataMahasiswa)
+                        .addGap(85, 85, 85)
                         .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(IconDosenPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -323,15 +320,14 @@ public class Dosen extends javax.swing.JFrame {
             }
         });
 
-        Jadwal.setText("Jadwal");
+        Jadwal.setText("Input Nilai");
+        Jadwal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JadwalActionPerformed(evt);
+            }
+        });
 
-        Registrasi.setText("Registrasi");
-
-        KartuStudi.setText("Kartu Studi");
-
-        KartuStudi1.setText("Tagihan");
-
-        KartuStudi2.setText("Transkip Nilai");
+        Registrasi.setText("Jadwal Mengajar");
 
         KartuStudi3.setText("Lupa Password");
 
@@ -343,9 +339,6 @@ public class Dosen extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(KartuStudi3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(KartuStudi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(KartuStudi2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(KartuStudi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Jadwal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Registrasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Home, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -360,15 +353,9 @@ public class Dosen extends javax.swing.JFrame {
                 .addComponent(Registrasi)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Jadwal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(KartuStudi1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(KartuStudi2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(KartuStudi)
-                .addGap(18, 18, 18)
+                .addGap(123, 123, 123)
                 .addComponent(KartuStudi3)
-                .addContainerGap(521, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Log_out.setBackground(new java.awt.Color(255, 0, 0));
@@ -406,7 +393,7 @@ public class Dosen extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Nova)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Semester1)
@@ -415,32 +402,31 @@ public class Dosen extends javax.swing.JFrame {
                     .addComponent(BebanSks)
                     .addComponent(Log_out, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(PanelBio, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PanelBio, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout Panel1Layout = new javax.swing.GroupLayout(Panel1);
         Panel1.setLayout(Panel1Layout);
         Panel1Layout.setHorizontalGroup(
             Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(Panel1Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LogoSiasat)
-                .addGap(34, 34, 34))
+                .addContainerGap())
         );
         Panel1Layout.setVerticalGroup(
             Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel1Layout.createSequentialGroup()
-                .addGap(9, 9, 9)
+                .addGap(15, 15, 15)
                 .addComponent(LogoSiasat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -448,14 +434,15 @@ public class Dosen extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 644, Short.MAX_VALUE))
+                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 646, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -463,12 +450,18 @@ public class Dosen extends javax.swing.JFrame {
 
     private void HomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeActionPerformed
         // TODO add your handling code here:
+        new Dosen().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_HomeActionPerformed
 
     private void Log_outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Log_outActionPerformed
-         new Login().setVisible(true);
+        new Login().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Log_outActionPerformed
+
+    private void JadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JadwalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JadwalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -509,9 +502,6 @@ public class Dosen extends javax.swing.JFrame {
     private javax.swing.JLabel IconDosenPanel;
     private javax.swing.JButton Jadwal;
     private javax.swing.JLabel JalanKemiri;
-    private javax.swing.JButton KartuStudi;
-    private javax.swing.JButton KartuStudi1;
-    private javax.swing.JButton KartuStudi2;
     private javax.swing.JButton KartuStudi3;
     private javax.swing.JButton Log_out;
     private javax.swing.JLabel LogoSiasat;
