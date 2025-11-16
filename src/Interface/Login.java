@@ -200,28 +200,31 @@ public class Login extends javax.swing.JFrame {
     String user = NimText.getText();
     String pass = String.valueOf(PasswordText.getPassword());
 
+    // =============== LOGIN DOSEN ===============
+    String nidDosen = "21122005"; 
+    String passDosen = "dosen123";
+
+    if (user.equals(nidDosen) && pass.equals(passDosen)) {
+        JOptionPane.showMessageDialog(this, "Login Dosen Berhasil!");
+
+        new Dosen().setVisible(true);  // buka form dosen
+        this.dispose();
+        return;
+    }
+
+    // =============== LOGIN MAHASISWA ===============
     if (user.equals("672024101") && pass.equals("ganteng")) {
-        JOptionPane.showMessageDialog(this, "Login Berhasil!");
+        JOptionPane.showMessageDialog(this, "Login Berhasil sebagai Mahasiswa!");
 
         Mahasiswa mhs = new Mahasiswa();
-        mhs.setVisible(true);
+        mhs.setVisible(true);  // buka form mahasiswa
 
         this.dispose();
-
-    } else if (user.equals("12345") && pass.equals("jomok")) {
-        JOptionPane.showMessageDialog(this, "Login Berhasil!");
-
-        Dosen dsn = new Dosen();
-        dsn.setVisible(true);
-
-        this.dispose();
+        return;
     }
-    
-    else {
-        JOptionPane.showMessageDialog(this, "Username atau Password salah!");
-    }
-    
 
+    // Jika semua salah
+    JOptionPane.showMessageDialog(this, "ID atau Password salah!");
     
     }//GEN-LAST:event_TombolLoginActionPerformed
 
