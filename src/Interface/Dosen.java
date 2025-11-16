@@ -66,7 +66,7 @@ public class Dosen extends javax.swing.JFrame {
         KartuStudi1 = new javax.swing.JButton();
         KartuStudi2 = new javax.swing.JButton();
         KartuStudi3 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        Log_out = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,12 +127,14 @@ public class Dosen extends javax.swing.JFrame {
         IconDosenPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/IconDosen.png"))); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setForeground(java.awt.Color.white);
 
         Biodata.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Biodata.setForeground(new java.awt.Color(255, 255, 255));
         Biodata.setText("BIODATA DOSEN");
 
         TanggalLahir.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        TanggalLahir.setForeground(java.awt.Color.white);
         TanggalLahir.setText("21 Desember 1980");
 
         Nama.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -160,24 +162,31 @@ public class Dosen extends javax.swing.JFrame {
         RiwayatPendidikan.setText("RIWAYAT PENDIDIKAN :");
 
         AngkaUmur.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        AngkaUmur.setForeground(java.awt.Color.white);
         AngkaUmur.setText("20");
 
         DikyPrastyo.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        DikyPrastyo.setForeground(java.awt.Color.white);
         DikyPrastyo.setText("Diky Prastyo M.Kom");
 
         JalanKemiri.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        JalanKemiri.setForeground(java.awt.Color.white);
         JalanKemiri.setText("Jl. Kemiri No. 39");
 
         S1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        S1.setForeground(java.awt.Color.white);
         S1.setText("- S1 (Sarjana) – Sistem Informasi, Universitas Diponegoro, 2009 ");
 
         S2.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        S2.setForeground(java.awt.Color.white);
         S2.setText("- S2 (Magister) – Teknik Informatika, Institut Teknologi Bandung, 2013");
 
         S1SI.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        S1SI.setForeground(java.awt.Color.white);
         S1SI.setText("- S1 (Sarjana) – Sistem Informasi, Universitas Diponegoro, 2009");
 
         EmailDiky.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        EmailDiky.setForeground(java.awt.Color.white);
         EmailDiky.setText("dikyprastyo@gmail.com");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -362,10 +371,15 @@ public class Dosen extends javax.swing.JFrame {
                 .addContainerGap(521, Short.MAX_VALUE))
         );
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Logout");
-        jButton1.setBorder(null);
+        Log_out.setBackground(new java.awt.Color(255, 0, 0));
+        Log_out.setForeground(new java.awt.Color(255, 255, 255));
+        Log_out.setText("Logout");
+        Log_out.setBorder(new javax.swing.border.LineBorder(java.awt.Color.white, 1, true));
+        Log_out.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Log_outActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -386,7 +400,7 @@ public class Dosen extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(BebanSks)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Log_out, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -397,9 +411,9 @@ public class Dosen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Semester1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BebanSks)
-                    .addComponent(jButton1))
+                    .addComponent(Log_out, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -451,6 +465,11 @@ public class Dosen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_HomeActionPerformed
 
+    private void Log_outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Log_outActionPerformed
+         new Login().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Log_outActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -494,6 +513,7 @@ public class Dosen extends javax.swing.JFrame {
     private javax.swing.JButton KartuStudi1;
     private javax.swing.JButton KartuStudi2;
     private javax.swing.JButton KartuStudi3;
+    private javax.swing.JButton Log_out;
     private javax.swing.JLabel LogoSiasat;
     private javax.swing.JLabel Nama;
     private javax.swing.JLabel Nova;
@@ -513,7 +533,6 @@ public class Dosen extends javax.swing.JFrame {
     private javax.swing.JLabel TanggalLahir2;
     private javax.swing.JLabel TextHome;
     private javax.swing.JLabel Umur;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
