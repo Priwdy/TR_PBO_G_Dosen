@@ -88,7 +88,6 @@ public class Jadwal extends javax.swing.JFrame {
         Registrasi1 = new javax.swing.JButton();
         KartuStudi4 = new javax.swing.JButton();
         KartuStudi6 = new javax.swing.JButton();
-        KartuStudi7 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         LogoSiasat = new javax.swing.JLabel();
@@ -592,8 +591,6 @@ public class Jadwal extends javax.swing.JFrame {
             }
         });
 
-        KartuStudi7.setText("Lupa Password");
-
         javax.swing.GroupLayout PanelMenu1Layout = new javax.swing.GroupLayout(PanelMenu1);
         PanelMenu1.setLayout(PanelMenu1Layout);
         PanelMenu1Layout.setHorizontalGroup(
@@ -601,9 +598,8 @@ public class Jadwal extends javax.swing.JFrame {
             .addGroup(PanelMenu1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(PanelMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(KartuStudi7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(KartuStudi4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(KartuStudi6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(KartuStudi6, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
                     .addComponent(Jadwal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Registrasi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Home1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -622,9 +618,7 @@ public class Jadwal extends javax.swing.JFrame {
                 .addComponent(KartuStudi6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(KartuStudi4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(KartuStudi7)
-                .addGap(41, 41, 41))
+                .addContainerGap(264, Short.MAX_VALUE))
         );
 
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
@@ -850,7 +844,6 @@ public class Jadwal extends javax.swing.JFrame {
     private javax.swing.JButton KartuStudi3;
     private javax.swing.JButton KartuStudi4;
     private javax.swing.JButton KartuStudi6;
-    private javax.swing.JButton KartuStudi7;
     private javax.swing.JLabel Keabsahan;
     private javax.swing.JLabel LogoSiasat;
     private javax.swing.JLabel NIK;

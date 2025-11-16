@@ -211,44 +211,41 @@
                                   <Component id="UntukKeperluan" min="-2" pref="763" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="Email" min="-2" pref="201" max="-2" attributes="0"/>
-                                              <Component id="NoHandphone" min="-2" pref="201" max="-2" attributes="0"/>
-                                              <Component id="NomerRekening" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="Bank" alignment="1" min="-2" pref="201" max="-2" attributes="0"/>
-                                              <Component id="AtasNamaRekening" alignment="1" min="-2" pref="201" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="Email" max="32767" attributes="0"/>
+                                              <Component id="NoHandphone" max="32767" attributes="0"/>
+                                              <Component id="Bank" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="AtasNamaRekening" alignment="1" max="32767" attributes="0"/>
                                               <Component id="HubungannDenganRekening" min="-2" max="-2" attributes="0"/>
+                                              <Component id="NomerRekening" alignment="1" min="-2" pref="201" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                                  <Component id="Form6" min="-2" pref="243" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="TombolSimpan" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="Form7" alignment="1" min="-2" pref="243" max="-2" attributes="0"/>
-                                              <Component id="Form8" alignment="1" min="-2" pref="243" max="-2" attributes="0"/>
-                                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                                  <Component id="Form4" min="-2" pref="243" max="-2" attributes="0"/>
-                                                  <Component id="Form5" min="-2" pref="243" max="-2" attributes="0"/>
-                                                  <Component id="Form3" alignment="0" min="-2" pref="243" max="-2" attributes="0"/>
+                                              <Component id="Form6" min="-2" pref="249" max="-2" attributes="0"/>
+                                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="Form1" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="TombolSimpan" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="Form7" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="Form8" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="Form3" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="Form4" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="Form5" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="NoKeluarga" min="-2" pref="201" max="-2" attributes="0"/>
-                                              <Component id="NIK" min="-2" pref="201" max="-2" attributes="0"/>
-                                              <Component id="TempatTanggalLahir" min="-2" pref="201" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="NoKeluarga" max="32767" attributes="0"/>
+                                              <Component id="TempatTanggalLahir" max="32767" attributes="0"/>
+                                              <Component id="NIK" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="Form2" alignment="0" min="-2" pref="243" max="-2" attributes="0"/>
                                               <Component id="Semarang" min="-2" pref="313" max="-2" attributes="0"/>
-                                              <Component id="Form1" min="-2" pref="243" max="-2" attributes="0"/>
+                                              <Component id="Form2" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -267,7 +264,7 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="SelamatDatang" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="UntukKeperluan" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -276,7 +273,7 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="Keabsahan" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="TempatTanggalLahir" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="Semarang" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -321,13 +318,13 @@
                               <Component id="HubungannDenganRekening" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="Form8" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="TombolSimpan" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="DemiKelancaran" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="BagianAdministrasi" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="31" max="32767" attributes="0"/>
+                          <EmptySpace pref="67" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -616,16 +613,18 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="KartuStudi3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="KartuStudi" alignment="0" max="32767" attributes="0"/>
-                              <Component id="KartuStudi2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="Jadwal" alignment="0" max="32767" attributes="0"/>
-                              <Component id="Registrasi" alignment="0" max="32767" attributes="0"/>
-                              <Component id="Home" alignment="1" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="KartuStudi" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="KartuStudi2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Jadwal" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Registrasi" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Home" alignment="1" min="-2" pref="109" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="KartuStudi3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="75" max="32767" attributes="0"/>
+                          <EmptySpace pref="65" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -644,7 +643,7 @@
                           <Component id="KartuStudi" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="KartuStudi3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -694,6 +693,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Lupa Password"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="KartuStudi3ActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

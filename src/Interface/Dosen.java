@@ -328,8 +328,18 @@ public class Dosen extends javax.swing.JFrame {
         });
 
         Registrasi.setText("Jadwal Mengajar");
+        Registrasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrasiActionPerformed(evt);
+            }
+        });
 
         KartuStudi3.setText("Lupa Password");
+        KartuStudi3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KartuStudi3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelMenuLayout = new javax.swing.GroupLayout(PanelMenu);
         PanelMenu.setLayout(PanelMenuLayout);
@@ -461,7 +471,21 @@ public class Dosen extends javax.swing.JFrame {
 
     private void JadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JadwalActionPerformed
         // TODO add your handling code here:
+        new InputNilai().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_JadwalActionPerformed
+
+    private void KartuStudi3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KartuStudi3ActionPerformed
+        // TODO add your handling code here:
+         new GantiPassword().setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_KartuStudi3ActionPerformed
+
+    private void RegistrasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrasiActionPerformed
+        // TODO add your handling code here:
+        new JadwalMengajar().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_RegistrasiActionPerformed
 
     /**
      * @param args the command line arguments
