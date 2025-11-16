@@ -81,7 +81,6 @@ public class Jadwal extends javax.swing.JFrame {
         JadwalIcon = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -508,8 +507,6 @@ public class Jadwal extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText(": : SEMESTER 1 TA 2025 - 2026 ");
 
-        jButton3.setText("Presensi");
-
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("\"Jangan lupa melakukan absensi sebelum kelas dimulai. Absensi sangat penting untuk pencatatan kehadiran kalian.\"");
@@ -556,10 +553,7 @@ public class Jadwal extends javax.swing.JFrame {
                     .addGroup(PanelBio1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel3))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PanelBio1Layout.createSequentialGroup()
-                        .addGap(309, 309, 309)
-                        .addComponent(jButton3)))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(94, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
@@ -581,9 +575,7 @@ public class Jadwal extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(44, 44, 44))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         PanelMenu1.setBackground(new java.awt.Color(51, 51, 51));
@@ -869,7 +861,6 @@ public class Jadwal extends javax.swing.JFrame {
     private javax.swing.JLabel UntukKeperluan;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
