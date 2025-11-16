@@ -32,12 +32,10 @@ public class Dosen extends javax.swing.JFrame {
         LogoSiasat = new javax.swing.JLabel();
         PanelMenu = new javax.swing.JPanel();
         Home = new javax.swing.JButton();
-        Jadwal = new javax.swing.JButton();
-        Registrasi = new javax.swing.JButton();
-        KartuStudi = new javax.swing.JButton();
-        KartuStudi1 = new javax.swing.JButton();
-        KartuStudi2 = new javax.swing.JButton();
-        KartuStudi3 = new javax.swing.JButton();
+        input_nilai = new javax.swing.JButton();
+        jadwal_mengajar = new javax.swing.JButton();
+        arsip_nilai = new javax.swing.JButton();
+        lupa_pw = new javax.swing.JButton();
         LogoHome = new javax.swing.JLabel();
         HomeText = new javax.swing.JTextField();
         SelamatDatang = new javax.swing.JTextField();
@@ -47,14 +45,16 @@ public class Dosen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Panel1.setBackground(new java.awt.Color(255, 255, 255));
+        Panel1.setPreferredSize(new java.awt.Dimension(218, 345));
 
         LogoSiasat.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         LogoSiasat.setForeground(new java.awt.Color(255, 255, 255));
         LogoSiasat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/logo.gif"))); // NOI18N
 
         PanelMenu.setBackground(new java.awt.Color(204, 204, 204));
-        PanelMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(null));
+        PanelMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PanelMenu.setForeground(new java.awt.Color(0, 0, 0));
+        PanelMenu.setPreferredSize(new java.awt.Dimension(218, 345));
 
         Home.setText("Home");
         Home.addActionListener(new java.awt.event.ActionListener() {
@@ -63,17 +63,18 @@ public class Dosen extends javax.swing.JFrame {
             }
         });
 
-        Jadwal.setText("Jadwal");
+        input_nilai.setText("Input Nilai");
+        input_nilai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_nilaiActionPerformed(evt);
+            }
+        });
 
-        Registrasi.setText("Registrasi");
+        jadwal_mengajar.setText("Jadwal Mengajar");
 
-        KartuStudi.setText("Kartu Studi");
+        arsip_nilai.setText("Arsip Nilai");
 
-        KartuStudi1.setText("Tagihan");
-
-        KartuStudi2.setText("Transkip Nilai");
-
-        KartuStudi3.setText("Lupa Password");
+        lupa_pw.setText("Lupa Password");
 
         javax.swing.GroupLayout PanelMenuLayout = new javax.swing.GroupLayout(PanelMenu);
         PanelMenu.setLayout(PanelMenuLayout);
@@ -82,14 +83,12 @@ public class Dosen extends javax.swing.JFrame {
             .addGroup(PanelMenuLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(KartuStudi3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(KartuStudi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(KartuStudi2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(KartuStudi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jadwal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Registrasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lupa_pw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(arsip_nilai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(input_nilai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jadwal_mengajar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Home, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         PanelMenuLayout.setVerticalGroup(
             PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,18 +96,14 @@ public class Dosen extends javax.swing.JFrame {
                 .addGap(96, 96, 96)
                 .addComponent(Home)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Registrasi)
+                .addComponent(jadwal_mengajar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Jadwal)
+                .addComponent(input_nilai)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(KartuStudi1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(KartuStudi2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(KartuStudi)
-                .addGap(18, 18, 18)
-                .addComponent(KartuStudi3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(arsip_nilai)
+                .addGap(88, 88, 88)
+                .addComponent(lupa_pw)
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         LogoHome.setForeground(new java.awt.Color(255, 255, 255));
@@ -167,7 +162,7 @@ public class Dosen extends javax.swing.JFrame {
                 .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Panel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(PanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(PanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE))
                     .addGroup(Panel1Layout.createSequentialGroup()
                         .addGap(159, 159, 159)
                         .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -184,15 +179,19 @@ public class Dosen extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void input_nilaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_nilaiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_nilaiActionPerformed
 
     private void HomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeActionPerformed
         // TODO add your handling code here:
@@ -226,18 +225,16 @@ public class Dosen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Home;
     private javax.swing.JTextField HomeText;
-    private javax.swing.JButton Jadwal;
-    private javax.swing.JButton KartuStudi;
-    private javax.swing.JButton KartuStudi1;
-    private javax.swing.JButton KartuStudi2;
-    private javax.swing.JButton KartuStudi3;
     private javax.swing.JTextArea Keterangan;
     private javax.swing.JScrollPane Keterangan2;
     private javax.swing.JLabel LogoHome;
     private javax.swing.JLabel LogoSiasat;
     private javax.swing.JPanel Panel1;
     private javax.swing.JPanel PanelMenu;
-    private javax.swing.JButton Registrasi;
     private javax.swing.JTextField SelamatDatang;
+    private javax.swing.JButton arsip_nilai;
+    private javax.swing.JButton input_nilai;
+    private javax.swing.JButton jadwal_mengajar;
+    private javax.swing.JButton lupa_pw;
     // End of variables declaration//GEN-END:variables
 }

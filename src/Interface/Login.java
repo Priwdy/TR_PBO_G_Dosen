@@ -208,9 +208,19 @@ public class Login extends javax.swing.JFrame {
 
         this.dispose();
 
-    } else {
+    } else if (user.equals("12345") && pass.equals("jomok")) {
+        JOptionPane.showMessageDialog(this, "Login Berhasil!");
+
+        Dosen dsn = new Dosen();
+        dsn.setVisible(true);
+
+        this.dispose();
+    }
+    
+    else {
         JOptionPane.showMessageDialog(this, "Username atau Password salah!");
     }
+    
 
     
     }//GEN-LAST:event_TombolLoginActionPerformed
