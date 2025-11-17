@@ -44,6 +44,19 @@ public class Admin extends javax.swing.JFrame {
         IconDosenPanel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        Umur = new javax.swing.JLabel();
+        EmailDiky = new javax.swing.JLabel();
+        Alamat = new javax.swing.JLabel();
+        Email = new javax.swing.JLabel();
+        TanggalLahir2 = new javax.swing.JLabel();
+        RiwayatPendidikan = new javax.swing.JLabel();
+        AngkaUmur = new javax.swing.JLabel();
+        DikyPrastyo = new javax.swing.JLabel();
+        JalanKemiri = new javax.swing.JLabel();
+        Biodata = new javax.swing.JLabel();
+        S1 = new javax.swing.JLabel();
+        TanggalLahir = new javax.swing.JLabel();
+        Nama = new javax.swing.JLabel();
         PanelMenu = new javax.swing.JPanel();
         Home = new javax.swing.JButton();
         Mahasiswa = new javax.swing.JButton();
@@ -109,21 +122,125 @@ public class Admin extends javax.swing.JFrame {
         IconDosenPanel.setBackground(new java.awt.Color(255, 255, 255));
         IconDosenPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pic/IconAdmin.png"))); // NOI18N
 
+        Umur.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Umur.setForeground(new java.awt.Color(255, 255, 255));
+        Umur.setText("UMUR                                :");
+
+        EmailDiky.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        EmailDiky.setForeground(java.awt.Color.white);
+        EmailDiky.setText("dikyprastyo@gmail.com");
+
+        Alamat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Alamat.setForeground(new java.awt.Color(255, 255, 255));
+        Alamat.setText("ALAMAT                            :");
+
+        Email.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Email.setForeground(new java.awt.Color(255, 255, 255));
+        Email.setText("EMAIL                                  :");
+
+        TanggalLahir2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        TanggalLahir2.setForeground(new java.awt.Color(255, 255, 255));
+        TanggalLahir2.setText("TANGGAL LAHIR             :");
+
+        RiwayatPendidikan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        RiwayatPendidikan.setForeground(new java.awt.Color(255, 255, 255));
+        RiwayatPendidikan.setText("RIWAYAT PENDIDIKAN :");
+
+        AngkaUmur.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        AngkaUmur.setForeground(java.awt.Color.white);
+        AngkaUmur.setText("20");
+
+        DikyPrastyo.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        DikyPrastyo.setForeground(java.awt.Color.white);
+        DikyPrastyo.setText("Priwiditya Lingga M");
+
+        JalanKemiri.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        JalanKemiri.setForeground(java.awt.Color.white);
+        JalanKemiri.setText("Jl. Patimura No. 41");
+
+        Biodata.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Biodata.setForeground(new java.awt.Color(255, 255, 255));
+        Biodata.setText("BIODATA DOSEN");
+
+        S1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        S1.setForeground(java.awt.Color.white);
+        S1.setText("- S1 (Sarjana) – Sistem Informasi, Universitas Diponegoro, 2009 ");
+
+        TanggalLahir.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        TanggalLahir.setForeground(java.awt.Color.white);
+        TanggalLahir.setText("21 Januari 2005");
+
+        Nama.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Nama.setForeground(new java.awt.Color(255, 255, 255));
+        Nama.setText("NAMA                                 :");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(592, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(EmailDiky))
+                            .addComponent(Biodata)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(S1))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(Alamat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(TanggalLahir2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Umur, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Nama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(RiwayatPendidikan, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TanggalLahir)
+                                    .addComponent(AngkaUmur)
+                                    .addComponent(JalanKemiri)
+                                    .addComponent(DikyPrastyo))))))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel1)
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
+                .addComponent(Biodata)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Nama)
+                    .addComponent(DikyPrastyo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Umur)
+                    .addComponent(AngkaUmur))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TanggalLahir2)
+                    .addComponent(TanggalLahir))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Alamat)
+                    .addComponent(JalanKemiri))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(RiwayatPendidikan)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(S1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Email)
+                    .addComponent(EmailDiky))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PanelBioLayout = new javax.swing.GroupLayout(PanelBio);
@@ -150,9 +267,9 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelBioLayout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addComponent(IconDosenPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(96, 96, 96)
+                .addGap(26, 26, 26)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(76, 76, 76)
                 .addComponent(Panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -162,20 +279,23 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(HomeIcon)
                     .addComponent(TextHome))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SelamatDatang)
-                .addGap(30, 30, 30)
-                .addComponent(SelamatDatangPortal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DataMahasiswa)
-                .addGap(59, 59, 59)
                 .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(Panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(PanelBioLayout.createSequentialGroup()
-                            .addComponent(IconDosenPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(259, 259, 259)))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelBioLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SelamatDatang)
+                        .addGap(30, 30, 30)
+                        .addComponent(SelamatDatangPortal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DataMahasiswa)
+                        .addGap(59, 59, 59)
+                        .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PanelBioLayout.createSequentialGroup()
+                                .addComponent(IconDosenPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(259, 259, 259))))
+                    .addGroup(PanelBioLayout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -381,24 +501,37 @@ public class Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Alamat;
+    private javax.swing.JLabel AngkaUmur;
     private javax.swing.JLabel BebanSks;
+    private javax.swing.JLabel Biodata;
     private javax.swing.JLabel DataMahasiswa;
+    private javax.swing.JLabel DikyPrastyo;
+    private javax.swing.JLabel Email;
+    private javax.swing.JLabel EmailDiky;
     private javax.swing.JButton Home;
     private javax.swing.JLabel HomeIcon;
     private javax.swing.JLabel IconDosenPanel;
+    private javax.swing.JLabel JalanKemiri;
     private javax.swing.JLabel LogoSiasat;
     private javax.swing.JButton Mahasiswa;
     private javax.swing.JButton Mahasiswa1;
     private javax.swing.JButton Mahasiswa2;
+    private javax.swing.JLabel Nama;
     private javax.swing.JLabel Nova;
     private javax.swing.JPanel Panel1;
     private javax.swing.JPanel Panel3;
     private javax.swing.JPanel PanelBio;
     private javax.swing.JPanel PanelMenu;
+    private javax.swing.JLabel RiwayatPendidikan;
+    private javax.swing.JLabel S1;
     private javax.swing.JLabel SelamatDatang;
     private javax.swing.JLabel SelamatDatangPortal;
     private javax.swing.JLabel Semester1;
+    private javax.swing.JLabel TanggalLahir;
+    private javax.swing.JLabel TanggalLahir2;
     private javax.swing.JLabel TextHome;
+    private javax.swing.JLabel Umur;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
