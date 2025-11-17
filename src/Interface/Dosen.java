@@ -477,7 +477,7 @@ public class Dosen extends javax.swing.JFrame {
 
     private void KartuStudi3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KartuStudi3ActionPerformed
         // TODO add your handling code here:
-         new GantiPassword().setVisible(true);
+         new LupaPasswordAdmin().setVisible(true);
          this.dispose();
     }//GEN-LAST:event_KartuStudi3ActionPerformed
 

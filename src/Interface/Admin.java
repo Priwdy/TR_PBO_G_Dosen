@@ -190,11 +190,21 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
-        Mahasiswa.setText("Mahasiswa");
+        Mahasiswa.setText("Tambah Mahasiswa");
+        Mahasiswa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MahasiswaActionPerformed(evt);
+            }
+        });
 
-        Mahasiswa1.setText("Dosen");
+        Mahasiswa1.setText("Tambah Dosen");
+        Mahasiswa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mahasiswa1ActionPerformed(evt);
+            }
+        });
 
-        Mahasiswa2.setText("Mata Kuliah");
+        Mahasiswa2.setText("Tambah Matakuliah");
         Mahasiswa2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Mahasiswa2ActionPerformed(evt);
@@ -208,10 +218,10 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(PanelMenuLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Mahasiswa, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                    .addComponent(Mahasiswa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Home, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Mahasiswa1, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
-                    .addComponent(Mahasiswa2, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
+                    .addComponent(Mahasiswa1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Mahasiswa2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         PanelMenuLayout.setVerticalGroup(
@@ -219,7 +229,7 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(PanelMenuLayout.createSequentialGroup()
                 .addGap(96, 96, 96)
                 .addComponent(Home)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Mahasiswa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Mahasiswa2)
@@ -325,11 +335,25 @@ public class Admin extends javax.swing.JFrame {
 
     private void Mahasiswa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mahasiswa2ActionPerformed
         // TODO add your handling code here:
+        new TambahMatakuliah().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_Mahasiswa2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new Login().setVisible(true);
         this.dispose();    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void MahasiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MahasiswaActionPerformed
+        // TODO add your handling code here:
+        new TambahMahasiswa().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_MahasiswaActionPerformed
+
+    private void Mahasiswa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mahasiswa1ActionPerformed
+        // TODO add your handling code here:
+        new TambahDosen().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Mahasiswa1ActionPerformed
 
     /**
      * @param args the command line arguments
