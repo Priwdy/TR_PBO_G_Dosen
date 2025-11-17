@@ -122,6 +122,8 @@ public class Admin extends javax.swing.JFrame {
         IconDosenPanel.setBackground(new java.awt.Color(255, 255, 255));
         IconDosenPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pic/IconAdmin.png"))); // NOI18N
 
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+
         Umur.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Umur.setForeground(new java.awt.Color(255, 255, 255));
         Umur.setText("UMUR                                :");
