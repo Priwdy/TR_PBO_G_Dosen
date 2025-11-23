@@ -4,6 +4,14 @@
  */
 package Interface;
 
+import Model.Koneksi;
+import javax.swing.table.DefaultTableModel;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import java.util.logging.Level;
 /**
  *
  * @author Priwidy
@@ -17,8 +25,12 @@ public class TambahDosen extends javax.swing.JFrame {
      */
     public TambahDosen() {
         initComponents();
+        setLocationRelativeTo(null);
+        load_table_data(); // <-- Tambahan: Panggil metode load saat frame diinisialisasi
+        pack();
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,6 +59,7 @@ public class TambahDosen extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         PanelMenu = new javax.swing.JPanel();
         Home = new javax.swing.JButton();
         Mahasiswa = new javax.swing.JButton();
@@ -96,7 +109,6 @@ public class TambahDosen extends javax.swing.JFrame {
 
         jTextField1.setBackground(new java.awt.Color(102, 102, 102));
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("Tambah Nama Dosen");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -105,7 +117,6 @@ public class TambahDosen extends javax.swing.JFrame {
 
         jTextField2.setBackground(new java.awt.Color(102, 102, 102));
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.setText("Input NID ");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -115,6 +126,11 @@ public class TambahDosen extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(51, 255, 51));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Tambah");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -136,6 +152,15 @@ public class TambahDosen extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Hapus");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("NID");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -145,24 +170,30 @@ public class TambahDosen extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel5)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5))
                             .addGap(26, 26, 26)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel7)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel5)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -413,15 +444,195 @@ public class TambahDosen extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String namaMhs = jTextField1.getText(); // Nama Mahasiswa
+        String nim = jTextField2.getText();     // NIM
+        
+        // Cek validasi input
+        if (namaMhs.isEmpty() || nim.isEmpty()) { // Hanya cek NAMA dan NIM
+            JOptionPane.showMessageDialog(this, "Nama dan Nim harus diisi!", "Input Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        Connection conn = Koneksi.getConnection();
+        if (conn == null) {
+            JOptionPane.showMessageDialog(this, "Gagal terhubung ke database.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            conn.setAutoCommit(false); // Mulai transaksi
+            
+            // 1. INSERT ke tabel pengguna_login (Autentikasi)
+            String sqlLogin = "INSERT INTO pengguna_login (id_user, password, role) VALUES (?, ?, 'mhs')";
+            try (PreparedStatement psLogin = conn.prepareStatement(sqlLogin)) {
+                psLogin.setString(1, nim);
+                psLogin.setString(2, "123456"); // Menggunakan default password 123456 karena field input dihapus
+                psLogin.executeUpdate();
+            }
+
+            // 2. INSERT ke tabel mahasiswa (Data Profil)
+            String sqlMhs = "INSERT INTO mahasiswa (nim, nama_mhs) VALUES (?, ?)";
+            try (PreparedStatement psMhs = conn.prepareStatement(sqlMhs)) {
+                psMhs.setString(1, nim);
+                psMhs.setString(2, namaMhs);
+                psMhs.executeUpdate();
+            }
+
+            conn.commit(); // Commit jika kedua operasi berhasil
+            JOptionPane.showMessageDialog(this, 
+                    "Mahasiswa " + namaMhs + " (NIM: " + nim + ") berhasil ditambahkan!\n" +
+                    "(Password Default: 123456)", 
+                    "Sukses", JOptionPane.INFORMATION_MESSAGE);
+
+            // Bersihkan field setelah berhasil
+            jTextField1.setText("");
+            jTextField2.setText("");
+            load_table_data();
+
+        } catch (SQLException e) {
+            try {
+                if (conn != null) conn.rollback(); // Rollback jika ada error
+            } catch (SQLException ex) {
+                 logger.log(Level.SEVERE, "Rollback failed", ex);
+            }
+            if (e.getErrorCode() == 1062) { // 1062: Duplicate entry for primary key
+                 JOptionPane.showMessageDialog(this, "Gagal: NIM " + nim + " sudah terdaftar di sistem.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                 logger.log(Level.SEVERE, "Error SQL: Gagal menambahkan mahasiswa", e);
+                 JOptionPane.showMessageDialog(this, "Gagal menambahkan mahasiswa: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } finally {
+            try {
+                if (conn != null) conn.setAutoCommit(true); // Kembalikan mode auto-commit
+            } catch (SQLException e) {
+                 logger.log(Level.SEVERE, "Failed to reset auto-commit", e);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Pilih baris dosen yang ingin dihapus.", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Ambil NID dari kolom pertama (indeks 0) pada baris yang dipilih
+        String nidToDelete = jTable1.getModel().getValueAt(selectedRow, 0).toString();
+        
+        int confirm = JOptionPane.showConfirmDialog(this, 
+            "Apakah Anda yakin ingin menghapus data dosen NID: " + nidToDelete + "?\n(Data login juga akan dihapus!)", 
+            "Konfirmasi Hapus", 
+            JOptionPane.YES_NO_OPTION);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            Connection conn = null;
+            
+            try {
+                conn = Koneksi.getConnection();
+                if (conn == null) {
+                    JOptionPane.showMessageDialog(this, "Koneksi ke database tidak tersedia.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                conn.setAutoCommit(false); // Mulai transaksi
+                
+                // Jika Dosen memiliki relasi FOREIGN KEY ke tabel lain (misal jadwal_mengajar), 
+                // data di tabel tersebut harus dihapus atau di-update terlebih dahulu.
+                
+                // 1. Hapus dari tabel Dosen (Profil)
+                String sqlDeleteDosen = "DELETE FROM dosen WHERE nid = ?";
+                try (PreparedStatement psDosen = conn.prepareStatement(sqlDeleteDosen)) {
+                    psDosen.setString(1, nidToDelete);
+                    psDosen.executeUpdate();
+                }
+
+                // 2. Hapus dari tabel Pengguna_Login
+                String sqlDeleteLogin = "DELETE FROM pengguna_login WHERE id_user = ?";
+                try (PreparedStatement psLogin = conn.prepareStatement(sqlDeleteLogin)) {
+                    psLogin.setString(1, nidToDelete);
+                    psLogin.executeUpdate();
+                }
+
+                conn.commit(); // Komit transaksi
+                JOptionPane.showMessageDialog(this, "Data dosen NID " + nidToDelete + " berhasil dihapus.", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
+                
+                // 3. Refresh tabel
+                load_table_data();
+
+            } catch (SQLException e) {
+                try {
+                    if (conn != null) conn.rollback(); // Rollback jika ada error
+                } catch (SQLException ex) {
+                    logger.log(Level.SEVERE, "Rollback failed", ex);
+                }
+                logger.log(Level.SEVERE, "Gagal menghapus data dosen", e);
+                // Menangani error jika ada Foreign Key di tabel lain
+                JOptionPane.showMessageDialog(this, "Gagal menghapus data: Cek data terkait di tabel lain (misal, Jadwal Mengajar). Error: " + e.getMessage(), "Error Database", JOptionPane.ERROR_MESSAGE);
+            } finally {
+                try {
+                    if (conn != null) conn.setAutoCommit(true);
+                } catch (SQLException e) {
+                    logger.log(Level.SEVERE, "Failed to reset auto-commit", e);
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void load_table_data() { 
+        DefaultTableModel model = new DefaultTableModel();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        // Definisikan Kolom Tabel (sesuai kolom di jTable1)
+        model.addColumn("NID");
+        model.addColumn("Nama Dosen");
+        jTable1.setModel(model); 
+
+        try {
+            // 1. Mendapatkan Koneksi
+            conn = Model.Koneksi.getConnection();
+            
+            if (conn == null) {
+                JOptionPane.showMessageDialog(this, "Koneksi ke database tidak tersedia.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // 2. Query dan PreparedStatement (Ambil NID dan Nama Dosen dari tabel dosen)
+            String sql = "SELECT nid, nama_dosen FROM dosen ORDER BY nid ASC";
+            ps = conn.prepareStatement(sql); 
+            
+            // 3. Eksekusi Query
+            rs = ps.executeQuery();
+            
+            // 4. Memuat Data ke Model
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                    rs.getString("nid"),
+                    rs.getString("nama_dosen")
+                });
+            }
+            
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "Error saat memuat data dosen", e);
+            JOptionPane.showMessageDialog(this, "Gagal memuat data dosen: " + e.getMessage(), "Error Database", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            // 5. Menutup Objek SQL dengan aman
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+            } catch (SQLException e) {
+                 logger.log(Level.SEVERE, "Gagal menutup sumber daya SQL.", e);
+            }
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -435,7 +646,7 @@ public class TambahDosen extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TambahDosen().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TambahMahasiswa().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -459,6 +670,7 @@ public class TambahDosen extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
