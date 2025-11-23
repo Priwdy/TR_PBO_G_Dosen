@@ -83,7 +83,7 @@ public class Mahasiswa extends javax.swing.JFrame {
 
         Nova.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Nova.setForeground(new java.awt.Color(255, 153, 0));
-        Nova.setText(": : 672024101 - NOVA PRAYOGA SAPUTRA (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
+        Nova.setText(": : SELAMAT DATANG MAHASISWA (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
 
         Semester1.setForeground(new java.awt.Color(255, 153, 0));
         Semester1.setText(": : SEMESTER 1 TA 2025 - 2026");
@@ -187,7 +187,7 @@ public class Mahasiswa extends javax.swing.JFrame {
 
         Semarang4.setBackground(new java.awt.Color(70, 73, 75));
         Semarang4.setForeground(new java.awt.Color(0, 0, 0));
-        Semarang4.setText(" novaprayoga@gmail.com");
+        Semarang4.setText("mahasiswa@gmail.com");
         Semarang4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Semarang5.setBackground(new java.awt.Color(70, 73, 75));
@@ -202,7 +202,7 @@ public class Mahasiswa extends javax.swing.JFrame {
 
         Semarang7.setBackground(new java.awt.Color(70, 73, 75));
         Semarang7.setForeground(new java.awt.Color(0, 0, 0));
-        Semarang7.setText(" Nova Prayoga Saputra");
+        Semarang7.setText("Mahasiswa");
         Semarang7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Semarang8.setBackground(new java.awt.Color(70, 73, 75));

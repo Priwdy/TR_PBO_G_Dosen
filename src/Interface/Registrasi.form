@@ -65,7 +65,7 @@
                               <Component id="Nova1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="Semester2" alignment="0" min="-2" pref="632" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="273" max="32767" attributes="0"/>
+                          <EmptySpace pref="281" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="BebanSks1" min="-2" max="-2" attributes="0"/>
@@ -119,7 +119,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="99" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value=": : 672024101 - NOVA PRAYOGA SAPUTRA (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   "/>
+            <Property name="text" type="java.lang.String" value=": : SELAMAT DATANG MAHASISWA (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="Semester2">

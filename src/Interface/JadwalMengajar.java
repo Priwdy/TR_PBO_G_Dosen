@@ -78,7 +78,7 @@ public class JadwalMengajar extends javax.swing.JFrame {
 
         Nova.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Nova.setForeground(new java.awt.Color(255, 153, 0));
-        Nova.setText(": : DICKY PRASTYO M.KOM (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
+        Nova.setText(": : SELAMAT DATANG DOSEN (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
 
         Semester1.setForeground(new java.awt.Color(255, 153, 0));
         Semester1.setText(": : SEMESTER 1 TA 2025 - 2026");
@@ -193,38 +193,35 @@ public class JadwalMengajar extends javax.swing.JFrame {
         PanelBioLayout.setHorizontalGroup(
             PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelBioLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SelamatDatang)
                     .addGroup(PanelBioLayout.createSequentialGroup()
-                        .addComponent(HomeIcon)
+                        .addGap(19, 19, 19)
+                        .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SelamatDatang)
+                            .addGroup(PanelBioLayout.createSequentialGroup()
+                                .addComponent(HomeIcon)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TextHome))
+                            .addComponent(DataMahasiswa)
+                            .addComponent(SelamatDatangPortal)))
+                    .addGroup(PanelBioLayout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TextHome))
-                    .addComponent(DataMahasiswa)
-                    .addComponent(SelamatDatangPortal))
-                .addContainerGap())
-            .addGroup(PanelBioLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PanelBioLayout.createSequentialGroup()
-                            .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(280, 280, 280))
-                        .addGroup(PanelBioLayout.createSequentialGroup()
-                            .addGap(6, 6, 6)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(PanelBioLayout.createSequentialGroup()
                         .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelBioLayout.createSequentialGroup()
-                                .addGap(119, 119, 119)
-                                .addComponent(jButton1))
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(PanelBioLayout.createSequentialGroup()
-                                .addGap(258, 258, 258)
-                                .addComponent(jLabel4)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(PanelBioLayout.createSequentialGroup()
+                                        .addGap(119, 119, 119)
+                                        .addComponent(jButton1))
+                                    .addGroup(PanelBioLayout.createSequentialGroup()
+                                        .addGap(258, 258, 258)
+                                        .addComponent(jLabel4)))
+                                .addGap(280, 280, 280)))))
                 .addContainerGap())
         );
         PanelBioLayout.setVerticalGroup(
@@ -285,7 +282,7 @@ public class JadwalMengajar extends javax.swing.JFrame {
                 .addContainerGap(404, Short.MAX_VALUE))
             .addGroup(PanelMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PanelBio, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addComponent(PanelBio, javax.swing.GroupLayout.PREFERRED_SIZE, 587, Short.MAX_VALUE))
         );
 
         Log_out.setBackground(new java.awt.Color(255, 0, 0));
