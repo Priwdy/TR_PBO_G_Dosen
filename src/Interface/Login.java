@@ -1,6 +1,12 @@
 package Interface;
+
 import javax.swing.JOptionPane;
+import Model.Koneksi;
 import Interface.Mahasiswa;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class Login extends javax.swing.JFrame {
@@ -195,40 +201,74 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TombolLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TombolLoginActionPerformed
-        // TODO add your handling code here:
-  String user = NimText.getText();
-    String pass = String.valueOf(PasswordText.getPassword());
+        String idUser = NimText.getText();
+        String password = String.valueOf(PasswordText.getPassword());
+        
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
-    if (user.equals("672024101") && pass.equals("ganteng")) {
-        JOptionPane.showMessageDialog(this, "Login Berhasil!");
-
-        Mahasiswa mhs = new Mahasiswa();
-        mhs.setVisible(true);
-
-        this.dispose();
-
-    } else if (user.equals("dosen") && pass.equals("jomok")) {
-        JOptionPane.showMessageDialog(this, "Login Berhasil!");
-
-        Dosen dsn = new Dosen();
-        dsn.setVisible(true);
-
-        this.dispose();
-
-    } else if (user.equals("admin") && pass.equals("admin123")) {
-        JOptionPane.showMessageDialog(this, "LOGIN BERHASIL! SELAMAT DATANG ADMIN");
-
-        Admin admin = new Admin();
-        admin.setVisible(true);
-
-        this.dispose();
-
-    } else {
-        JOptionPane.showMessageDialog(this,
-                "Username atau Password salah!",
-                "Login Gagal",
-                JOptionPane.ERROR_MESSAGE);
-    }
+        try {
+            // Dapatkan koneksi
+            conn = Koneksi.getConnection();
+            
+            // 1. Cek Koneksi
+            if (conn == null) {
+                // Pesan error ini sudah muncul dari Koneksi.java, tapi jaga-jaga
+                JOptionPane.showMessageDialog(this, "Koneksi database GAGAL. Cek XAMPP/Service MySQL.", "Error Fatal", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            // 2. Query untuk mengambil password dan role
+            String sql = "SELECT password, role FROM pengguna_login WHERE id_user = ?";
+            
+            // Gunakan PreparedStatement
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, idUser);
+            
+            // Eksekusi Query
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                String dbPassword = rs.getString("password");
+                String role = rs.getString("role");
+                
+                // 3. Verifikasi Password
+                if (password.equals(dbPassword)) {
+                    JOptionPane.showMessageDialog(this, "Login Berhasil! Selamat Datang " + role.toUpperCase());
+                    
+                    // Arahkan ke Interface yang sesuai
+                    switch (role) {
+                        case "mhs" -> new Mahasiswa().setVisible(true);
+                        case "dosen" -> new Dosen().setVisible(true);
+                        case "admin" -> new Admin().setVisible(true);
+                        default -> JOptionPane.showMessageDialog(this, "Role pengguna tidak valid.", "Error Login", JOptionPane.ERROR_MESSAGE);
+                    }
+                    this.dispose();
+                    
+                } else {
+                    JOptionPane.showMessageDialog(this, "Password salah!", "Login Gagal", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                // Pesan ini muncul jika query tidak menemukan id_user
+                JOptionPane.showMessageDialog(this, "NIM/NID/User tidak ditemukan.", "Login Gagal", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException e) {
+            // Menampilkan error database secara spesifik (misal: kesalahan sintaks SQL)
+            JOptionPane.showMessageDialog(this, "Error Database saat otentikasi: " + e.getMessage(), "Error SQL", JOptionPane.ERROR_MESSAGE);
+            logger.log(java.util.logging.Level.SEVERE, "SQL Exception during login", e);
+        } finally {
+            // 4. Pastikan semua objek SQL ditutup
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                // Koneksi sebaiknya tidak ditutup di sini jika Koneksi.java menggunakan Singleton
+                // if (conn != null) conn.close(); 
+            } catch (SQLException e) {
+                logger.log(java.util.logging.Level.SEVERE, "Error closing SQL resources", e);
+            }
+        }
+    
     
 
     

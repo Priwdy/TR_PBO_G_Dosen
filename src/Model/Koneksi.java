@@ -11,22 +11,23 @@ public class Koneksi {
     public static Connection getConnection() {
         if (koneksi == null) {
             try {
-                String url = "jdbc:mysql://localhost:3306/tr-pbo-dosen"; // Pastikan nama DB benar
+                // Pastikan nama database sudah sesuai: tr-pbo
+                String url = "jdbc:mysql://localhost:3306/tr-pbo";
                 String user = "root";
                 String password = "";
                 
-                // MENGGUNAKAN CLASS.FORNAME (Lebih Aman)
-                // Ini menggantikan baris yang error sebelumnya
+                // Memuat driver MySQL
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 
                 koneksi = DriverManager.getConnection(url, user, password);
+                // System.out.println("Koneksi berhasil!"); // Opsional untuk debugging
                 
             } catch (ClassNotFoundException e) {
-                // Error ini muncul jika Library belum dimasukkan (Solusi 1 & 2 belum dilakukan)
-                JOptionPane.showMessageDialog(null, "Library MySQL Belum Dipasang!\n" + e.getMessage());
+                // Jika library driver MySQL belum dimasukkan (JDBC Connector)
+                JOptionPane.showMessageDialog(null, "Library MySQL Belum Dipasang!\n" + e.getMessage(), "Kesalahan Koneksi", JOptionPane.ERROR_MESSAGE);
             } catch (SQLException e) {
-                // Error ini muncul jika XAMPP mati atau nama DB salah
-                JOptionPane.showMessageDialog(null, "Gagal Koneksi ke Database!\nCek XAMPP Anda.");
+                // Jika XAMPP (MySQL) mati atau kredensial salah
+                JOptionPane.showMessageDialog(null, "Gagal Koneksi ke Database!\nCek XAMPP Anda. \nError: " + e.getMessage(), "Kesalahan Koneksi", JOptionPane.ERROR_MESSAGE);
             }
         }
         return koneksi;

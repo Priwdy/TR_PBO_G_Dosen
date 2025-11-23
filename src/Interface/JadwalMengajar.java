@@ -4,20 +4,32 @@
  */
 package Interface;
 
+import Model.Koneksi;
+import java.util.logging.Level;
+import javax.swing.table.DefaultTableModel;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import java.util.logging.Logger;
 /**
  *
  * @author Priwidy
  */
 public class JadwalMengajar extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(JadwalMengajar.class.getName());
+    private static final Logger logger = Logger.getLogger(JadwalMengajar.class.getName());
+    private final String CURRENT_NID = "dosen";
 
     /**
      * Creates new form JadwalMengajar
      */
     public JadwalMengajar() {
         initComponents();
+        setLocationRelativeTo(null);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,6 +46,10 @@ public class JadwalMengajar extends javax.swing.JFrame {
         Nova = new javax.swing.JLabel();
         Semester1 = new javax.swing.JLabel();
         BebanSks = new javax.swing.JLabel();
+        PanelMenu = new javax.swing.JPanel();
+        Home = new javax.swing.JButton();
+        Jadwal = new javax.swing.JButton();
+        Registrasi = new javax.swing.JButton();
         PanelBio = new javax.swing.JPanel();
         HomeIcon = new javax.swing.JLabel();
         TextHome = new javax.swing.JLabel();
@@ -44,18 +60,10 @@ public class JadwalMengajar extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        PanelMenu = new javax.swing.JPanel();
-        Home = new javax.swing.JButton();
-        Jadwal = new javax.swing.JButton();
-        Registrasi = new javax.swing.JButton();
         Log_out = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,198 +85,6 @@ public class JadwalMengajar extends javax.swing.JFrame {
 
         BebanSks.setForeground(new java.awt.Color(255, 153, 0));
         BebanSks.setText(": : BEBAN SKS MAKSIMAL : - SKS");
-
-        PanelBio.setBackground(new java.awt.Color(255, 255, 255));
-
-        HomeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pic/JadwalIcon.jpg"))); // NOI18N
-
-        TextHome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        TextHome.setForeground(new java.awt.Color(0, 0, 0));
-        TextHome.setText("JADWAL MENGAJAR DOSEN");
-
-        SelamatDatang.setBackground(new java.awt.Color(255, 255, 255));
-        SelamatDatang.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        SelamatDatang.setForeground(new java.awt.Color(0, 0, 0));
-        SelamatDatang.setText("SELAMAT DATANG DI SISTEM INFORMASI AKADEMIK SATYA WACANA ");
-
-        SelamatDatangPortal.setBackground(new java.awt.Color(255, 255, 255));
-        SelamatDatangPortal.setForeground(new java.awt.Color(0, 0, 0));
-        SelamatDatangPortal.setText("SELAMAT DATANG DI PORTAL SISTEM INFORMASI AKADEMIK DOSEN, TEMPAT DI MANA ANDA DAPAT MENGAKSES BERBAGAI FITUR PENGELOLAAN PERKULIAHAN");
-
-        DataMahasiswa.setBackground(new java.awt.Color(255, 255, 255));
-        DataMahasiswa.setForeground(new java.awt.Color(0, 0, 0));
-        DataMahasiswa.setText("DATA MAHASISWA, JADWAL MENGAJAR, SERTA PROSES ADMINISTRASI AKADEMIK DENGAN MUDAH DAN CEPAT.");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Kode", "Mata Kuliah", "Keterangan"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 694, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
-        );
-
-        jButton1.setBackground(new java.awt.Color(51, 255, 51));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Simpan");
-
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Hapus");
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("“Ilmu yang Anda ajarkan bukan hanya membuka");
-
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("pikiran kami, tetapi juga membentuk karakter dan cara");
-
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("pandang kami. Terima kasih atas dedikasi Anda.”");
-
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("~Icikbos");
-
-        jTextField1.setBackground(new java.awt.Color(102, 102, 102));
-        jTextField1.setText("Masukkan Kode");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jTextField2.setBackground(new java.awt.Color(102, 102, 102));
-        jTextField2.setText("Masukkan Mata Kuliah");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
-        jTextField3.setBackground(new java.awt.Color(102, 102, 102));
-        jTextField3.setText("Keterangan");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout PanelBioLayout = new javax.swing.GroupLayout(PanelBio);
-        PanelBio.setLayout(PanelBioLayout);
-        PanelBioLayout.setHorizontalGroup(
-            PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelBioLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SelamatDatang)
-                    .addGroup(PanelBioLayout.createSequentialGroup()
-                        .addComponent(HomeIcon)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TextHome))
-                    .addComponent(DataMahasiswa)
-                    .addComponent(SelamatDatangPortal))
-                .addContainerGap())
-            .addGroup(PanelBioLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelBioLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelBioLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PanelBioLayout.createSequentialGroup()
-                                .addGap(99, 99, 99)
-                                .addComponent(jButton2)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(PanelBioLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelBioLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelBioLayout.createSequentialGroup()
-                                .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelBioLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(PanelBioLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel4)
-                                .addGap(69, 69, 69)))
-                        .addContainerGap())))
-        );
-        PanelBioLayout.setVerticalGroup(
-            PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelBioLayout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(HomeIcon)
-                    .addComponent(TextHome))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SelamatDatang)
-                .addGap(18, 18, 18)
-                .addComponent(SelamatDatangPortal)
-                .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(PanelBioLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DataMahasiswa)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelBioLayout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
-                        .addGap(42, 42, 42)
-                        .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))
-                        .addGap(164, 164, 164)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         PanelMenu.setBackground(new java.awt.Color(51, 51, 51));
         PanelMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -295,6 +111,154 @@ public class JadwalMengajar extends javax.swing.JFrame {
             }
         });
 
+        PanelBio.setBackground(new java.awt.Color(255, 255, 255));
+
+        HomeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pic/JadwalIcon.jpg"))); // NOI18N
+
+        TextHome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        TextHome.setForeground(new java.awt.Color(0, 0, 0));
+        TextHome.setText("JADWAL MENGAJAR DOSEN");
+
+        SelamatDatang.setBackground(new java.awt.Color(255, 255, 255));
+        SelamatDatang.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        SelamatDatang.setForeground(new java.awt.Color(0, 0, 0));
+        SelamatDatang.setText("SELAMAT DATANG DI SISTEM INFORMASI AKADEMIK SATYA WACANA ");
+
+        SelamatDatangPortal.setBackground(new java.awt.Color(255, 255, 255));
+        SelamatDatangPortal.setForeground(new java.awt.Color(0, 0, 0));
+        SelamatDatangPortal.setText("SELAMAT DATANG DI PORTAL SISTEM INFORMASI AKADEMIK DOSEN, TEMPAT DI MANA ANDA DAPAT MENGAKSES BERBAGAI FITUR PENGELOLAAN PERKULIAHAN");
+
+        DataMahasiswa.setBackground(new java.awt.Color(255, 255, 255));
+        DataMahasiswa.setForeground(new java.awt.Color(0, 0, 0));
+        DataMahasiswa.setText("DATA MAHASISWA, JADWAL MENGAJAR, SERTA PROSES ADMINISTRASI AKADEMIK DENGAN MUDAH DAN CEPAT.");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Nama Matakuliah", "Kode Matakuliah", "Ruangan", "SKS", "Waktu"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 68, Short.MAX_VALUE))
+        );
+
+        jButton1.setBackground(new java.awt.Color(51, 255, 51));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Tampilkan");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("“Ilmu yang Anda ajarkan bukan hanya membuka");
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("pikiran kami, tetapi juga membentuk karakter dan cara");
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("pandang kami. Terima kasih atas dedikasi Anda.”");
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("~Icikbos");
+
+        javax.swing.GroupLayout PanelBioLayout = new javax.swing.GroupLayout(PanelBio);
+        PanelBio.setLayout(PanelBioLayout);
+        PanelBioLayout.setHorizontalGroup(
+            PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelBioLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SelamatDatang)
+                    .addGroup(PanelBioLayout.createSequentialGroup()
+                        .addComponent(HomeIcon)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TextHome))
+                    .addComponent(DataMahasiswa)
+                    .addComponent(SelamatDatangPortal))
+                .addContainerGap())
+            .addGroup(PanelBioLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelBioLayout.createSequentialGroup()
+                            .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(280, 280, 280))
+                        .addGroup(PanelBioLayout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(PanelBioLayout.createSequentialGroup()
+                        .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelBioLayout.createSequentialGroup()
+                                .addGap(119, 119, 119)
+                                .addComponent(jButton1))
+                            .addGroup(PanelBioLayout.createSequentialGroup()
+                                .addGap(258, 258, 258)
+                                .addComponent(jLabel4)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        PanelBioLayout.setVerticalGroup(
+            PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelBioLayout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(HomeIcon)
+                    .addComponent(TextHome))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SelamatDatang)
+                .addGap(18, 18, 18)
+                .addComponent(SelamatDatangPortal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DataMahasiswa)
+                .addGroup(PanelBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelBioLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(PanelBioLayout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+
         javax.swing.GroupLayout PanelMenuLayout = new javax.swing.GroupLayout(PanelMenu);
         PanelMenu.setLayout(PanelMenuLayout);
         PanelMenuLayout.setHorizontalGroup(
@@ -305,7 +269,9 @@ public class JadwalMengajar extends javax.swing.JFrame {
                     .addComponent(Jadwal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Registrasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Home, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(PanelBio, javax.swing.GroupLayout.PREFERRED_SIZE, 1157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         PanelMenuLayout.setVerticalGroup(
             PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,7 +282,10 @@ public class JadwalMengajar extends javax.swing.JFrame {
                 .addComponent(Registrasi)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Jadwal)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(404, Short.MAX_VALUE))
+            .addGroup(PanelMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PanelBio, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
 
         Log_out.setBackground(new java.awt.Color(255, 0, 0));
@@ -338,18 +307,17 @@ public class JadwalMengajar extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(PanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PanelBio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(Nova)
                             .addComponent(Semester1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(PanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(BebanSks)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Log_out, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))))
+                        .addGap(17, 17, 17))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,13 +327,11 @@ public class JadwalMengajar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Semester1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BebanSks)
                     .addComponent(Log_out, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PanelBio, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(11, 11, 11)
+                .addComponent(PanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout Panel1Layout = new javax.swing.GroupLayout(Panel1);
@@ -373,19 +339,20 @@ public class JadwalMengajar extends javax.swing.JFrame {
         Panel1Layout.setHorizontalGroup(
             Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel1Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LogoSiasat)
-                .addContainerGap())
+                .addGap(26, 26, 26))
         );
         Panel1Layout.setVerticalGroup(
             Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addContainerGap()
                 .addComponent(LogoSiasat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -394,16 +361,11 @@ public class JadwalMengajar extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1377, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(Panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -432,27 +394,63 @@ public class JadwalMengajar extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_RegistrasiActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        load_table_data();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    private void load_table_data() {
+        DefaultTableModel model = new DefaultTableModel();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        // Definisikan Kolom Tabel (Sesuai dengan matakuliah)
+        model.addColumn("Kode Matakuliah");
+        model.addColumn("Nama Matakuliah"); // Tambahan: Kolom Nama MK
+        model.addColumn("Ruangan");       // Tambahan: Kolom Ruangan
+        model.addColumn("SKS");           // Tambahan: Kolom SKS
+        model.addColumn("Waktu");         // Tambahan: Kolom Waktu
+        jTable1.setModel(model); 
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+        try {
+            conn = Koneksi.getConnection();
+            if (conn == null) return;
 
+            // Query SELECT dari tabel matakuliah
+            String sql = "SELECT kode_mk, nama_mk, ruangan, sks, waktu FROM matakuliah ORDER BY kode_mk ASC";
+            
+            ps = conn.prepareStatement(sql); 
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                    rs.getString("kode_mk"),
+                    rs.getString("nama_mk"), 
+                    rs.getString("ruangan"),
+                    rs.getString("sks"),
+                    rs.getString("waktu") 
+                });
+            }
+            if (model.getRowCount() == 0) {
+                 JOptionPane.showMessageDialog(this, "Tidak ada data mata kuliah ditemukan.", "Info", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "Error saat memuat data mata kuliah", e);
+            JOptionPane.showMessageDialog(this, "Gagal memuat mata kuliah: " + e.getMessage(), "Error Database", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+            } catch (SQLException e) {
+                 logger.log(Level.SEVERE, "Gagal menutup sumber daya SQL.", e);
+            }
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -466,8 +464,9 @@ public class JadwalMengajar extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new JadwalMengajar().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new InputNilai().setVisible(true));
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BebanSks;
@@ -487,7 +486,6 @@ public class JadwalMengajar extends javax.swing.JFrame {
     private javax.swing.JLabel Semester1;
     private javax.swing.JLabel TextHome;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -496,8 +494,5 @@ public class JadwalMengajar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
