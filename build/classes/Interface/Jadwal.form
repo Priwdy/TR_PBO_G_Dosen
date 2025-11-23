@@ -876,106 +876,16 @@
                 <Component class="javax.swing.JTable" name="jTable1">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="8" rowCount="8">
-                        <Column editable="true" title="No" type="java.lang.String">
-                          <Data value="1"/>
-                          <Data value="2"/>
-                          <Data value="3"/>
-                          <Data value="4"/>
-                          <Data value="5"/>
-                          <Data value="6"/>
-                          <Data value="7"/>
-                          <Data value="8"/>
-                        </Column>
-                        <Column editable="true" title="Kode" type="java.lang.String">
-                          <Data value="MU188L"/>
-                          <Data value="TC005G"/>
-                          <Data value="TC008G"/>
-                          <Data value="TC009F"/>
-                          <Data value="TC212G"/>
-                          <Data value="TC223G"/>
-                          <Data value="TC611F"/>
-                          <Data value="TC614C"/>
-                        </Column>
-                        <Column editable="true" title="Mata Kuliah" type="java.lang.String">
-                          <Data value="PENGEMBANGAN KEPRIBADIAN ENTREPRENEURIAL L&#x9;"/>
-                          <Data value="AST PEMROGRAMAN BERORIENTASI OBJEK G&#x9;"/>
-                          <Data value="AST PEMROGRAMAN WEB G&#x9;"/>
-                          <Data value="AST KECERDASAN BUATAN F&#x9;"/>
-                          <Data value="PEMROGRAMAN BERORIENTASI OBJEK G&#x9;"/>
-                          <Data value="PEMROGRAMAN WEB G&#x9;"/>
-                          <Data value="KECERDASAN BUATAN F&#x9;"/>
-                          <Data value="DASAR PEMROGRAMAN JARINGAN C&#x9;"/>
-                        </Column>
-                        <Column editable="true" title="Kode Dosen" type="java.lang.String">
-                          <Data value="16820"/>
-                          <Data value="68909"/>
-                          <Data value="68910"/>
-                          <Data value="68910"/>
-                          <Data value="68975"/>
-                          <Data value="67578"/>
-                          <Data value="67002"/>
-                          <Data value="67501"/>
-                        </Column>
-                        <Column editable="true" title="Nama Dosen" type="java.lang.String">
-                          <Data value="CAROLINA LITA PERMATASARI&#x9;"/>
-                          <Data value="ASISTEN 9&#x9;"/>
-                          <Data value="ASISTEN 10&#x9;"/>
-                          <Data value="ASISTEN 10&#x9;"/>
-                          <Data value="PRATYAKSA OCSA N. SAIAN&#x9;"/>
-                          <Data value="FAJAR AYUNINGTYAS&#x9;"/>
-                          <Data value="MAGDALENA A. INEKE PAKERENG&#x9;"/>
-                          <Data value="THEOPHILUS YOHANIS HERMANUS WELLEM&#x9;"/>
-                        </Column>
-                        <Column editable="true" title="Hari" type="java.lang.String">
-                          <Data value="Kamis"/>
-                          <Data value="Kamis"/>
-                          <Data value="Senin"/>
-                          <Data value="Jumat"/>
-                          <Data value="Senin"/>
-                          <Data value="Jumat"/>
-                          <Data value="Rabu"/>
-                          <Data value="Selasa"/>
-                        </Column>
-                        <Column editable="true" title="Jam" type="java.lang.String">
-                          <Data value="13_16"/>
-                          <Data value="07_09&#x9;"/>
-                          <Data value="16_18&#x9;"/>
-                          <Data value="08_10"/>
-                          <Data value="13_16&#x9;"/>
-                          <Data value="10_13"/>
-                          <Data value="10_12"/>
-                          <Data value="09_12"/>
-                        </Column>
-                        <Column editable="true" title="Ruang" type="java.lang.String">
-                          <Data value="CXY202"/>
-                          <Data value="FTI455&#x9;"/>
-                          <Data value="FTI451&#x9;"/>
-                          <Data value="FTI451"/>
-                          <Data value="FTI455&#x9;"/>
-                          <Data value="FTI467"/>
-                          <Data value="FTI333"/>
-                          <Data value="FTI465"/>
-                        </Column>
+                      <Table columnCount="5" rowCount="0">
+                        <Column editable="true" title="Kode" type="java.lang.String"/>
+                        <Column editable="true" title="Mata Kuliah" type="java.lang.String"/>
+                        <Column editable="true" title="Hari" type="java.lang.String"/>
+                        <Column editable="true" title="Jam" type="java.lang.String"/>
+                        <Column editable="true" title="Ruang" type="java.lang.String"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>

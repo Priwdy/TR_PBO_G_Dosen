@@ -86,21 +86,21 @@ public class TranskipNilai extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "MU188L", "PENGEMBANGAN KEPRIBADIAN ENTREPRENEURIAL L	", "3", "A", "12", "2024-2025/1 "},
-                {"2", "TC005G", "AST PEMROGRAMAN BERORIENTASI OBJEK G	", "3", "A", "12", "2024-2025/1 "},
-                {"3", "TC008G", "AST PEMROGRAMAN WEB G	", "3", "AB", "12", "2024-2025/1 "},
-                {"4", "TC009F", "AST KECERDASAN BUATAN F	", "2", "A", "7", "2024-2025/2 "},
-                {"5", "TC212G", "PEMROGRAMAN BERORIENTASI OBJEK G	", "2", "A", "8", "2024-2025/2 "},
-                {"6", "TC223G", "PEMROGRAMAN WEB G	", "2", "A", "12", "2024-2025/2 "},
-                {"7", "TC611F", "KECERDASAN BUATAN F	", "2", "A", "8", "2024-2025/3 "},
-                {"8", "TC614C", "DASAR PEMROGRAMAN JARINGAN C	", "3", "A", "12", "2024-2025/3 "}
+                {"", "", ""},
+                {"", "", ""},
+                {"", "", ""},
+                {"", "", ""},
+                {"", "", ""},
+                {"", "", ""},
+                {"", "", ""},
+                {"", "", "A"}
             },
             new String [] {
-                "No", "Kode", "Mata Kuliah", "Sks", "Nilai", "AK", "Tahun Ambil "
+                "NIM", "Nama", "Nilai"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {

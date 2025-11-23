@@ -490,21 +490,14 @@ public class Jadwal extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "MU188L", "PENGEMBANGAN KEPRIBADIAN ENTREPRENEURIAL L	", "16820", "CAROLINA LITA PERMATASARI	", "Kamis", "13_16", "CXY202"},
-                {"2", "TC005G", "AST PEMROGRAMAN BERORIENTASI OBJEK G	", "68909", "ASISTEN 9	", "Kamis", "07_09	", "FTI455	"},
-                {"3", "TC008G", "AST PEMROGRAMAN WEB G	", "68910", "ASISTEN 10	", "Senin", "16_18	", "FTI451	"},
-                {"4", "TC009F", "AST KECERDASAN BUATAN F	", "68910", "ASISTEN 10	", "Jumat", "08_10", "FTI451"},
-                {"5", "TC212G", "PEMROGRAMAN BERORIENTASI OBJEK G	", "68975", "PRATYAKSA OCSA N. SAIAN	", "Senin", "13_16	", "FTI455	"},
-                {"6", "TC223G", "PEMROGRAMAN WEB G	", "67578", "FAJAR AYUNINGTYAS	", "Jumat", "10_13", "FTI467"},
-                {"7", "TC611F", "KECERDASAN BUATAN F	", "67002", "MAGDALENA A. INEKE PAKERENG	", "Rabu", "10_12", "FTI333"},
-                {"8", "TC614C", "DASAR PEMROGRAMAN JARINGAN C	", "67501", "THEOPHILUS YOHANIS HERMANUS WELLEM	", "Selasa", "09_12", "FTI465"}
+
             },
             new String [] {
-                "No", "Kode", "Mata Kuliah", "Kode Dosen", "Nama Dosen", "Hari", "Jam", "Ruang"
+                "Kode", "Mata Kuliah", "Hari", "Jam", "Ruang"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
