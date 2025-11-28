@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2025 at 04:53 PM
+-- Generation Time: Nov 28, 2025 at 11:01 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -37,8 +37,10 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`nid`, `nama_dosen`) VALUES
-('123456780', 'Haha'),
-('555', 'ocsa');
+('555', 'ocsa'),
+('672', 'Wili'),
+('muehe', 'Theo Ganteng'),
+('xyz123', 'Messi');
 
 -- --------------------------------------------------------
 
@@ -57,7 +59,8 @@ CREATE TABLE `input_nilai` (
 --
 
 INSERT INTO `input_nilai` (`kode_mk`, `nilai`, `ak`) VALUES
-('TC001B', 'A', '12');
+('TC007D', 'A', '12.0'),
+('TC008E', 'E', '1.0');
 
 -- --------------------------------------------------------
 
@@ -100,13 +103,6 @@ CREATE TABLE `mahasiswa` (
   `nama_mhs` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `mahasiswa`
---
-
-INSERT INTO `mahasiswa` (`nim`, `nama_mhs`) VALUES
-('672024085', 'Disca');
-
 -- --------------------------------------------------------
 
 --
@@ -118,15 +114,18 @@ CREATE TABLE `matakuliah` (
   `nama_mk` varchar(100) NOT NULL,
   `ruangan` varchar(20) DEFAULT NULL,
   `waktu` varchar(50) DEFAULT NULL,
-  `sks` int(11) DEFAULT NULL
+  `sks` varchar(75) DEFAULT NULL,
+  `hari` varchar(53) DEFAULT NULL,
+  `id_dosen` varchar(70) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `matakuliah`
 --
 
-INSERT INTO `matakuliah` (`kode_mk`, `nama_mk`, `ruangan`, `waktu`, `sks`) VALUES
-('TC001B', 'SBD B', 'FTI400', '9 - 11', 2);
+INSERT INTO `matakuliah` (`kode_mk`, `nama_mk`, `ruangan`, `waktu`, `sks`, `hari`, `id_dosen`) VALUES
+('TC007D', 'ASD D', 'FTI500', '9 - 12', '3', 'Senin', '555'),
+('TC008E', 'PTI A', 'FTI 501', '12 - 15', '2', 'Selasa', 'xyz123');
 
 -- --------------------------------------------------------
 
@@ -160,18 +159,33 @@ CREATE TABLE `pengguna_login` (
 --
 
 INSERT INTO `pengguna_login` (`id_user`, `password`, `role`) VALUES
-('1', '123456', 'mhs'),
-('123456780', 'password', 'dosen'),
+('1', '44', 'mhs'),
 ('44444444', 'password', 'dosen'),
 ('555', 'password', 'dosen'),
-('672024085', '123456', 'mhs'),
-('672024101', 'ganteng', 'mhs'),
+('672', 'dosen_123', 'dosen'),
+('672024101', 'jomok', 'mhs'),
 ('672024123', '123456', 'mhs'),
 ('672024200', 'hendra123', 'mhs'),
 ('672024212', '123456', 'mhs'),
-('admin', 'admin123', 'admin'),
+('admin', 'ganteng', 'admin'),
 ('Cuki', 'password', 'dosen'),
-('dosen', 'jomok', 'dosen');
+('dosen', 'ganteng', 'dosen'),
+('muehe', 'dosen_123', 'dosen'),
+('xyz123', 'dosen_123', 'dosen');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `siasat`
+--
+
+CREATE TABLE `siasat` (
+  `kode_mk` varchar(10) NOT NULL,
+  `nama_mk` varchar(100) NOT NULL,
+  `ruangan` varchar(20) DEFAULT NULL,
+  `waktu` varchar(50) DEFAULT NULL,
+  `sks` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -215,7 +229,8 @@ ALTER TABLE `mahasiswa`
 -- Indexes for table `matakuliah`
 --
 ALTER TABLE `matakuliah`
-  ADD PRIMARY KEY (`kode_mk`);
+  ADD PRIMARY KEY (`kode_mk`),
+  ADD KEY `fk_id_dosen` (`id_dosen`);
 
 --
 -- Indexes for table `nilai_mhs`
@@ -228,6 +243,12 @@ ALTER TABLE `nilai_mhs`
 --
 ALTER TABLE `pengguna_login`
   ADD PRIMARY KEY (`id_user`);
+
+--
+-- Indexes for table `siasat`
+--
+ALTER TABLE `siasat`
+  ADD PRIMARY KEY (`kode_mk`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -280,6 +301,12 @@ ALTER TABLE `krs_mhs`
 --
 ALTER TABLE `mahasiswa`
   ADD CONSTRAINT `fk_mhs_login` FOREIGN KEY (`nim`) REFERENCES `pengguna_login` (`id_user`);
+
+--
+-- Constraints for table `matakuliah`
+--
+ALTER TABLE `matakuliah`
+  ADD CONSTRAINT `fk_id_dosen` FOREIGN KEY (`id_dosen`) REFERENCES `dosen` (`nid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

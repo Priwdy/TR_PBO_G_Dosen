@@ -65,10 +65,7 @@ public class Mahasiswa extends javax.swing.JFrame {
         PanelMenu = new javax.swing.JPanel();
         Home = new javax.swing.JButton();
         Jadwal = new javax.swing.JButton();
-        Registrasi = new javax.swing.JButton();
-        KartuStudi = new javax.swing.JButton();
         KartuStudi2 = new javax.swing.JButton();
-        KartuStudi3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,7 +80,7 @@ public class Mahasiswa extends javax.swing.JFrame {
 
         Nova.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Nova.setForeground(new java.awt.Color(255, 153, 0));
-        Nova.setText(": : SELAMAT DATANG MAHASISWA (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
+        Nova.setText(": : 672024101 - NOVA PRAYOGA SAPUTRA (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
 
         Semester1.setForeground(new java.awt.Color(255, 153, 0));
         Semester1.setText(": : SEMESTER 1 TA 2025 - 2026");
@@ -187,7 +184,7 @@ public class Mahasiswa extends javax.swing.JFrame {
 
         Semarang4.setBackground(new java.awt.Color(70, 73, 75));
         Semarang4.setForeground(new java.awt.Color(0, 0, 0));
-        Semarang4.setText("mahasiswa@gmail.com");
+        Semarang4.setText(" novaprayoga@gmail.com");
         Semarang4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Semarang5.setBackground(new java.awt.Color(70, 73, 75));
@@ -202,7 +199,7 @@ public class Mahasiswa extends javax.swing.JFrame {
 
         Semarang7.setBackground(new java.awt.Color(70, 73, 75));
         Semarang7.setForeground(new java.awt.Color(0, 0, 0));
-        Semarang7.setText("Mahasiswa");
+        Semarang7.setText(" Nova Prayoga Saputra");
         Semarang7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Semarang8.setBackground(new java.awt.Color(70, 73, 75));
@@ -350,31 +347,10 @@ public class Mahasiswa extends javax.swing.JFrame {
             }
         });
 
-        Registrasi.setText("Registrasi");
-        Registrasi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistrasiActionPerformed(evt);
-            }
-        });
-
-        KartuStudi.setText("Kartu Studi");
-        KartuStudi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KartuStudiActionPerformed(evt);
-            }
-        });
-
         KartuStudi2.setText("Transkip Nilai");
         KartuStudi2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 KartuStudi2ActionPerformed(evt);
-            }
-        });
-
-        KartuStudi3.setText("Lupa Password");
-        KartuStudi3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KartuStudi3ActionPerformed(evt);
             }
         });
 
@@ -384,14 +360,10 @@ public class Mahasiswa extends javax.swing.JFrame {
             PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMenuLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(KartuStudi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(KartuStudi2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Jadwal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Registrasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Home, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(KartuStudi3))
+                .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(KartuStudi2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Jadwal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Home, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         PanelMenuLayout.setVerticalGroup(
@@ -400,16 +372,10 @@ public class Mahasiswa extends javax.swing.JFrame {
                 .addGap(96, 96, 96)
                 .addComponent(Home)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Registrasi)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Jadwal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(KartuStudi2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(KartuStudi)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(KartuStudi3)
-                .addGap(88, 88, 88))
+                .addContainerGap(319, Short.MAX_VALUE))
         );
 
         jButton1.setBackground(new java.awt.Color(255, 0, 0));
@@ -521,24 +487,6 @@ public class Mahasiswa extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_KartuStudi2ActionPerformed
 
-    private void RegistrasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrasiActionPerformed
-        // TODO add your handling code here:
-        new Registrasi().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_RegistrasiActionPerformed
-
-    private void KartuStudiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KartuStudiActionPerformed
-        // TODO add your handling code here:
-        new KartuStudi().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_KartuStudiActionPerformed
-
-    private void KartuStudi3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KartuStudi3ActionPerformed
-        // TODO add your handling code here:
-        new GantiPassword().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_KartuStudi3ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -576,9 +524,7 @@ public class Mahasiswa extends javax.swing.JFrame {
     private javax.swing.JLabel HubungannDenganRekening;
     private javax.swing.JButton Jadwal;
     private javax.swing.JLabel KarenaPentingnya;
-    private javax.swing.JButton KartuStudi;
     private javax.swing.JButton KartuStudi2;
-    private javax.swing.JButton KartuStudi3;
     private javax.swing.JLabel Keabsahan;
     private javax.swing.JLabel LogoSiasat;
     private javax.swing.JLabel NIK;
@@ -590,7 +536,6 @@ public class Mahasiswa extends javax.swing.JFrame {
     private javax.swing.JPanel PanelBio;
     private javax.swing.JPanel PanelMenu;
     private javax.swing.JLabel PendidikanTinggi;
-    private javax.swing.JButton Registrasi;
     private javax.swing.JLabel SelamatDatang;
     private javax.swing.JLabel Semarang;
     private javax.swing.JLabel Semarang1;

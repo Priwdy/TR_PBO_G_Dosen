@@ -3,15 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interface;
-
-import Model.Koneksi;
-import java.util.logging.Level;
-import javax.swing.table.DefaultTableModel;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import Controller.ControllerTambahMataKuliah;
 import javax.swing.JOptionPane;
-import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 import java.util.logging.Logger;
 /**
  *
@@ -20,7 +14,7 @@ import java.util.logging.Logger;
 public class JadwalMengajar extends javax.swing.JFrame {
     
     private static final Logger logger = Logger.getLogger(JadwalMengajar.class.getName());
-    private final String CURRENT_NID = "dosen";
+    private final ControllerTambahMataKuliah controller = new ControllerTambahMataKuliah();
 
     /**
      * Creates new form JadwalMengajar
@@ -28,6 +22,50 @@ public class JadwalMengajar extends javax.swing.JFrame {
     public JadwalMengajar() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+    
+    private void tampilkanData() {
+        // 1. Ambil model data lengkap dari Controller (berisi semua kolom database)
+        DefaultTableModel modelLengkap = controller.getDaftarMataKuliah();
+        
+        // 2. Buat model baru KHUSUS untuk tampilan tabel ini
+        DefaultTableModel modelTampilan = new DefaultTableModel();
+        
+        // Definisikan nama kolom yang ingin ditampilkan di tabel GUI
+        modelTampilan.addColumn("Kode MK");
+        modelTampilan.addColumn("Nama Matakuliah");
+        modelTampilan.addColumn("Ruangan");
+        modelTampilan.addColumn("SKS");
+        modelTampilan.addColumn("Waktu");
+        modelTampilan.addColumn("Hari");
+        
+        // 3. Salin data baris per baris dari modelLengkap ke modelTampilan
+        // Urutan di Controller (getDaftarMataKuliah): 
+        // 0: Kode MK, 1: Nama MK, 2: Ruangan, 3: SKS, 4: Waktu, 5: Hari, 6: ID Dosen
+        
+        for (int i = 0; i < modelLengkap.getRowCount(); i++) {
+            Object[] rowData = new Object[6]; 
+            
+            // Salin data sesuai urutan kolom yang diinginkan
+            rowData[0] = modelLengkap.getValueAt(i, 0); // Kode MK
+            rowData[1] = modelLengkap.getValueAt(i, 1); // Nama MK
+            rowData[2] = modelLengkap.getValueAt(i, 2); // Ruangan
+            rowData[3] = modelLengkap.getValueAt(i, 3); // SKS
+            rowData[4] = modelLengkap.getValueAt(i, 4); // Waktu
+            rowData[5] = modelLengkap.getValueAt(i, 5); // Hari
+            
+            // Kita mengabaikan index 6 (ID Dosen) agar tidak tampil di tabel
+            
+            modelTampilan.addRow(rowData);
+        }
+        
+        // 4. Pasang model yang sudah diisi ke jTable1
+        jTable1.setModel(modelTampilan);
+        
+        // Tambahan: Feedback jika data kosong
+        if (modelTampilan.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(this, "Data jadwal mengajar masih kosong.", "Info", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
     
 
@@ -78,7 +116,7 @@ public class JadwalMengajar extends javax.swing.JFrame {
 
         Nova.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Nova.setForeground(new java.awt.Color(255, 153, 0));
-        Nova.setText(": : SELAMAT DATANG DOSEN (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
+        Nova.setText(": : DICKY PRASTYO M.KOM (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
 
         Semester1.setForeground(new java.awt.Color(255, 153, 0));
         Semester1.setText(": : SEMESTER 1 TA 2025 - 2026");
@@ -134,13 +172,13 @@ public class JadwalMengajar extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Nama Matakuliah", "Kode Matakuliah", "Ruangan", "SKS", "Waktu"
+                "Kode Matakuliah", "Nama Matakuliah", "Ruangan", "SKS", "Waktu", "Hari"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -392,57 +430,9 @@ public class JadwalMengajar extends javax.swing.JFrame {
     }//GEN-LAST:event_RegistrasiActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        load_table_data();
+        tampilkanData();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void load_table_data() {
-        DefaultTableModel model = new DefaultTableModel();
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        
-        // Definisikan Kolom Tabel (Sesuai dengan matakuliah)
-        model.addColumn("Kode Matakuliah");
-        model.addColumn("Nama Matakuliah"); // Tambahan: Kolom Nama MK
-        model.addColumn("Ruangan");       // Tambahan: Kolom Ruangan
-        model.addColumn("SKS");           // Tambahan: Kolom SKS
-        model.addColumn("Waktu");         // Tambahan: Kolom Waktu
-        jTable1.setModel(model); 
-
-        try {
-            conn = Koneksi.getConnection();
-            if (conn == null) return;
-
-            // Query SELECT dari tabel matakuliah
-            String sql = "SELECT kode_mk, nama_mk, ruangan, sks, waktu FROM matakuliah ORDER BY kode_mk ASC";
-            
-            ps = conn.prepareStatement(sql); 
-            rs = ps.executeQuery();
-            
-            while (rs.next()) {
-                model.addRow(new Object[]{
-                    rs.getString("kode_mk"),
-                    rs.getString("nama_mk"), 
-                    rs.getString("ruangan"),
-                    rs.getString("sks"),
-                    rs.getString("waktu") 
-                });
-            }
-            if (model.getRowCount() == 0) {
-                 JOptionPane.showMessageDialog(this, "Tidak ada data mata kuliah ditemukan.", "Info", JOptionPane.INFORMATION_MESSAGE);
-            }
-        } catch (SQLException e) {
-            logger.log(Level.SEVERE, "Error saat memuat data mata kuliah", e);
-            JOptionPane.showMessageDialog(this, "Gagal memuat mata kuliah: " + e.getMessage(), "Error Database", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            try {
-                if (rs != null) rs.close();
-                if (ps != null) ps.close();
-            } catch (SQLException e) {
-                 logger.log(Level.SEVERE, "Gagal menutup sumber daya SQL.", e);
-            }
-        }
-    }
     
     /**
      * @param args the command line arguments
@@ -455,13 +445,11 @@ public class JadwalMengajar extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(JadwalMengajar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new InputNilai().setVisible(true));
+        
+        java.awt.EventQueue.invokeLater(() -> new JadwalMengajar().setVisible(true));
     }
     
 

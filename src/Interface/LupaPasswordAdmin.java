@@ -49,10 +49,7 @@ public class LupaPasswordAdmin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         PanelMenu1 = new javax.swing.JPanel();
-        Home1 = new javax.swing.JButton();
         KartuStudi7 = new javax.swing.JButton();
-        Home2 = new javax.swing.JButton();
-        Home3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         LogoSiasat = new javax.swing.JLabel();
@@ -211,28 +208,7 @@ public class LupaPasswordAdmin extends javax.swing.JFrame {
         PanelMenu1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PanelMenu1.setForeground(new java.awt.Color(0, 0, 0));
 
-        Home1.setText("Home");
-        Home1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Home1ActionPerformed(evt);
-            }
-        });
-
         KartuStudi7.setText("Lupa Password");
-
-        Home2.setText("Jadwal Mengajar");
-        Home2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Home2ActionPerformed(evt);
-            }
-        });
-
-        Home3.setText("Input Nilai");
-        Home3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Home3ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout PanelMenu1Layout = new javax.swing.GroupLayout(PanelMenu1);
         PanelMenu1.setLayout(PanelMenu1Layout);
@@ -240,23 +216,13 @@ public class LupaPasswordAdmin extends javax.swing.JFrame {
             PanelMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMenu1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(PanelMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(KartuStudi7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Home1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Home2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Home3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(KartuStudi7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(81, Short.MAX_VALUE))
         );
         PanelMenu1Layout.setVerticalGroup(
             PanelMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMenu1Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(Home1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Home2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Home3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(KartuStudi7)
                 .addGap(41, 41, 41))
         );
@@ -363,30 +329,11 @@ public class LupaPasswordAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Home1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Home1ActionPerformed
-        // TODO add your handling code here:
-        new Mahasiswa().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Home1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         new Login().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void Home2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Home2ActionPerformed
-        // TODO add your handling code here:
-        new JadwalMengajar().setVisible(true);
-        this.dispose();
-        
-    }//GEN-LAST:event_Home2ActionPerformed
-
-    private void Home3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Home3ActionPerformed
-        // TODO add your handling code here:
-        new InputNilai().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Home3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -415,9 +362,6 @@ public class LupaPasswordAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BebanSks1;
-    private javax.swing.JButton Home1;
-    private javax.swing.JButton Home2;
-    private javax.swing.JButton Home3;
     private javax.swing.JLabel HomeIcon1;
     private javax.swing.JButton KartuStudi7;
     private javax.swing.JLabel LogoSiasat;

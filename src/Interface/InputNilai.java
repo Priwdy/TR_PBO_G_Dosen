@@ -1,25 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Interface;
 
-import Model.Koneksi;
-import java.util.logging.Level;
-import javax.swing.table.DefaultTableModel;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+
+// --- IMPORT MVC ---
+import Controller.ControllerInputNilai;
+import Model.Nilai_UKSW;
+// ------------------
+
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import java.sql.ResultSet;
-import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Priwidy
  */
 public class InputNilai extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InputNilai.class.getName());
+    private final ControllerInputNilai controller = new ControllerInputNilai();
 
     /**
      * Creates new form InputNilai
@@ -28,8 +24,27 @@ public class InputNilai extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         load_table_data();
-    }
+        
+       jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int selectedRow = jTable1.getSelectedRow();
+                if (selectedRow != -1) {
+                    // Ambil data dari baris yang diklik
+                    String kode = jTable1.getValueAt(selectedRow, 0).toString();
+                    String nilai = jTable1.getValueAt(selectedRow, 1).toString();
+                    String ak = jTable1.getValueAt(selectedRow, 2).toString();
 
+                    // Masukkan ke Text Field
+                    jTextField7.setText(kode);  // Kode MK
+                    jTextField5.setText(nilai); // Nilai
+                    jTextField6.setText(ak);    // AK
+                }
+            }
+        });
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,7 +100,7 @@ public class InputNilai extends javax.swing.JFrame {
 
         Nova.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Nova.setForeground(new java.awt.Color(255, 153, 0));
-        Nova.setText(": : SELAMAT DATANG DOSEN (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
+        Nova.setText(": : DICKY PRASTYO M.KOM (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
 
         Semester1.setForeground(new java.awt.Color(255, 153, 0));
         Semester1.setText(": : SEMESTER 1 TA 2025 - 2026");
@@ -498,27 +513,19 @@ public class InputNilai extends javax.swing.JFrame {
             JOptionPane.YES_NO_OPTION);
 
         if (confirm == JOptionPane.YES_OPTION) {
-            Connection conn = null;
             try {
-                conn = Koneksi.getConnection();
-                if (conn == null) return;
-                
-                // Hapus SEMUA entri nilai berdasarkan kode MK
-                String sqlDelete = "DELETE FROM input_nilai WHERE kode_mk = ?";
-                try (PreparedStatement psDelete = conn.prepareStatement(sqlDelete)) {
-                    psDelete.setString(1, kodeMkToDelete);
-                    
-                    int deletedRows = psDelete.executeUpdate();
-                    
-                    if (deletedRows > 0) {
-                        JOptionPane.showMessageDialog(this, deletedRows + " entri nilai untuk MK " + kodeMkToDelete + " berhasil dihapus.", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
-                        load_table_data(); // Refresh tampilan
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Tidak ada entri nilai yang ditemukan untuk MK ini.", "Peringatan", JOptionPane.WARNING_MESSAGE);
-                    }
+                boolean success = controller.deleteNilai(kodeMkToDelete);
+                if (success) {
+                    JOptionPane.showMessageDialog(this, "Entri nilai untuk MK " + kodeMkToDelete + " berhasil dihapus.", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
+                    // Bersihkan Form
+                    jTextField7.setText("");
+                    jTextField5.setText("");
+                    jTextField6.setText("");
+                    load_table_data();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Tidak ada data untuk dihapus.", "Info", JOptionPane.INFORMATION_MESSAGE);
                 }
             } catch (SQLException e) {
-                logger.log(Level.SEVERE, "Gagal menghapus nilai", e);
                 JOptionPane.showMessageDialog(this, "Gagal menghapus nilai: " + e.getMessage(), "Error Database", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -527,42 +534,62 @@ public class InputNilai extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String kodeMk = jTextField7.getText().trim();
         String nilaiHuruf = jTextField5.getText().trim();
-        String ak = jTextField6.getText().trim();
+        String akStr = jTextField6.getText().trim();
 
-        if (kodeMk.isEmpty() || nilaiHuruf.isEmpty() || ak.isEmpty()) {
+        if (kodeMk.isEmpty() || nilaiHuruf.isEmpty() || akStr.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Kode MK, Nilai, dan AK harus diisi.", "Peringatan", JOptionPane.WARNING_MESSAGE);
             return;
         }
         
-
-        Connection conn = null;
         try {
-            conn = Koneksi.getConnection();
-            if (conn == null) return;
+            float ak = Float.parseFloat(akStr); // Konversi angka
+            Nilai_UKSW nilaiBaru = new Nilai_UKSW(kodeMk, nilaiHuruf, ak);
             
-            // LOGIKA SIMPAN (INSERT) ke tabel input_nilai
-            String sql = "INSERT INTO input_nilai (kode_mk, nilai, ak) VALUES (?, ?, ?)";
-                         
-            try (PreparedStatement ps = conn.prepareStatement(sql)) {
-                ps.setString(1, kodeMk);
-                ps.setString(2, nilaiHuruf);
-                ps.setString(3, ak);
-                
-                int result = ps.executeUpdate();
-                if (result > 0) {
-                    JOptionPane.showMessageDialog(this, "Nilai umum untuk MK " + kodeMk + " berhasil disimpan.", "Sukses", JOptionPane.INFORMATION_MESSAGE);
-                    load_table_data(); // Refresh tampilan
-                }
+            boolean success = controller.insertNilai(nilaiBaru);
+            if (success) {
+                JOptionPane.showMessageDialog(this, "Nilai berhasil disimpan.", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+                load_table_data();
             }
-
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "AK harus berupa angka/desimal.", "Error", JOptionPane.ERROR_MESSAGE);
         } catch (SQLException e) {
-            logger.log(Level.SEVERE, "Gagal menyimpan nilai", e);
-            JOptionPane.showMessageDialog(this, "Gagal menyimpan nilai: " + e.getMessage(), "Error Database", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error Database", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JOptionPane.showMessageDialog(this, "Fungsi Update dinonaktifkan. Silakan gunakan Simpan untuk menambah data baru atau Hapus untuk menghapus semua data terkait MK tersebut.", "Not Supported", JOptionPane.WARNING_MESSAGE);
+        String kodeMk = jTextField7.getText().trim();
+        String nilaiBaru = jTextField5.getText().trim();
+        String akStr = jTextField6.getText().trim();
+
+        if (kodeMk.isEmpty() || nilaiBaru.isEmpty() || akStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Pilih data dahulu atau isi semua field!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int confirm = JOptionPane.showConfirmDialog(this,
+                "Yakin ingin mengubah data untuk Kode MK: " + kodeMk + "?",
+                "Konfirmasi Update",
+                JOptionPane.YES_NO_OPTION);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            try {
+                float ak = Float.parseFloat(akStr);
+                Nilai_UKSW dataUpdate = new Nilai_UKSW(kodeMk, nilaiBaru, ak);
+                
+                boolean success = controller.updateNilai(dataUpdate);
+                if (success) {
+                    JOptionPane.showMessageDialog(this, "Data berhasil diperbarui!", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+                    load_table_data();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Kode MK tidak ditemukan.", "Gagal", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "AK harus berupa angka.", "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Gagal update: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
@@ -578,45 +605,8 @@ public class InputNilai extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void load_table_data() {
-        DefaultTableModel model = new DefaultTableModel();
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        
-        // Definisikan Kolom Tabel (Sesuai skema input_nilai)
-        model.addColumn("Kode Mata Kuliah");
-        model.addColumn("Nilai");
-        model.addColumn("AK");
-        jTable1.setModel(model); 
-
-        try {
-            conn = Koneksi.getConnection();
-            if (conn == null) return;
-
-            // Query SELECT dari tabel input_nilai
-            String sql = "SELECT kode_mk, nilai, ak FROM input_nilai ORDER BY kode_mk ASC";
-            
-            ps = conn.prepareStatement(sql); 
-            rs = ps.executeQuery();
-            
-            while (rs.next()) {
-                model.addRow(new Object[]{
-                    rs.getString("kode_mk"),
-                    rs.getString("nilai"),
-                    rs.getFloat("ak")
-                });
-            }
-        } catch (SQLException e) {
-            logger.log(Level.SEVERE, "Error saat memuat data nilai", e);
-            // JOptionPane.showMessageDialog(this, "Gagal memuat data nilai: " + e.getMessage(), "Error Database", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            try {
-                if (rs != null) rs.close();
-                if (ps != null) ps.close();
-            } catch (SQLException e) {
-                 logger.log(Level.SEVERE, "Gagal menutup sumber daya SQL.", e);
-            }
-        }
+        DefaultTableModel model = controller.getAllNilai();
+        jTable1.setModel(model);
     }
     
     /**
@@ -630,10 +620,9 @@ public class InputNilai extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(InputNilai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new InputNilai().setVisible(true));

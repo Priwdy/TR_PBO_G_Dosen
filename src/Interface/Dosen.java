@@ -61,7 +61,6 @@ public class Dosen extends javax.swing.JFrame {
         Home = new javax.swing.JButton();
         Jadwal = new javax.swing.JButton();
         Registrasi = new javax.swing.JButton();
-        KartuStudi3 = new javax.swing.JButton();
         Log_out = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -76,7 +75,7 @@ public class Dosen extends javax.swing.JFrame {
 
         Nova.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Nova.setForeground(new java.awt.Color(255, 153, 0));
-        Nova.setText(": : SELAMAT DATANG DOSEN (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
+        Nova.setText(": : DICKY PRASTYO M.KOM (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
 
         Semester1.setForeground(new java.awt.Color(255, 153, 0));
         Semester1.setText(": : SEMESTER 1 TA 2025 - 2026");
@@ -311,13 +310,6 @@ public class Dosen extends javax.swing.JFrame {
             }
         });
 
-        KartuStudi3.setText("Lupa Password");
-        KartuStudi3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KartuStudi3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout PanelMenuLayout = new javax.swing.GroupLayout(PanelMenu);
         PanelMenu.setLayout(PanelMenuLayout);
         PanelMenuLayout.setHorizontalGroup(
@@ -325,7 +317,6 @@ public class Dosen extends javax.swing.JFrame {
             .addGroup(PanelMenuLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(KartuStudi3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Jadwal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Registrasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Home, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -340,8 +331,6 @@ public class Dosen extends javax.swing.JFrame {
                 .addComponent(Registrasi)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Jadwal)
-                .addGap(123, 123, 123)
-                .addComponent(KartuStudi3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -450,12 +439,6 @@ public class Dosen extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_JadwalActionPerformed
 
-    private void KartuStudi3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KartuStudi3ActionPerformed
-        // TODO add your handling code here:
-         new LupaPasswordAdmin().setVisible(true);
-         this.dispose();
-    }//GEN-LAST:event_KartuStudi3ActionPerformed
-
     private void RegistrasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrasiActionPerformed
         // TODO add your handling code here:
         new JadwalMengajar().setVisible(true);
@@ -501,7 +484,6 @@ public class Dosen extends javax.swing.JFrame {
     private javax.swing.JLabel IconDosenPanel;
     private javax.swing.JButton Jadwal;
     private javax.swing.JLabel JalanKemiri;
-    private javax.swing.JButton KartuStudi3;
     private javax.swing.JButton Log_out;
     private javax.swing.JLabel LogoSiasat;
     private javax.swing.JLabel Nama;

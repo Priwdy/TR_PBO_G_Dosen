@@ -61,7 +61,7 @@ public class KartuStudi extends javax.swing.JFrame {
 
         Nova1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Nova1.setForeground(new java.awt.Color(255, 153, 0));
-        Nova1.setText(": : SELAMAT DATANG MAHASISWA (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
+        Nova1.setText(": : 672024101 - NOVA PRAYOGA SAPUTRA (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
 
         Semester2.setForeground(new java.awt.Color(255, 153, 0));
         Semester2.setText(": : SEMESTER 1 TA 2025 - 2026");
@@ -75,7 +75,7 @@ public class KartuStudi extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("KARTU STUDI");
+        jLabel2.setText("Kartu Studi");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -104,7 +104,7 @@ public class KartuStudi extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "No", "Kode", "Mata Kuliah", "Dosenl"
+                "No", "Kode", "Mata Kuliah", "Dosen"
             }
         ) {
             Class[] types = new Class [] {

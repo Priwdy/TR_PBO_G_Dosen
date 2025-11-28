@@ -3,6 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interface;
+import Model.Koneksi;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,6 +24,64 @@ public class TranskipNilai extends javax.swing.JFrame {
      */
     public TranskipNilai() {
         initComponents();
+        setLocationRelativeTo(null);
+        load_transkip_langsung();
+    }
+    
+    private void load_transkip_langsung() {
+        // 1. Siapkan Model Tabel
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Kode MK");
+        model.addColumn("Nilai");
+        model.addColumn("AK");
+        
+        jTable1.setModel(model); // Pasang header ke tabel
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            // 2. Buka Koneksi
+            conn = Koneksi.getConnection();
+            if (conn == null) {
+                JOptionPane.showMessageDialog(this, "Koneksi Database Gagal!");
+                return;
+            }
+
+            // 3. Query SQL (JOIN antara nilai_mhs dan matakuliah)
+            // Kita ambil NIM '672024101' sebagai contoh (sesuaikan jika sudah ada sistem login dinamis)
+            String sql = "select * from input_nilai order by kode_mk asc";
+
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            // 4. Masukkan data ke Tabel
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                    rs.getString("kode_mk"),
+                    rs.getString("nilai"),
+                    rs.getString("ak")        
+                });
+            }
+            
+            // Cek jika kosong
+            if (model.getRowCount() == 0) {
+                // Opsional: JOptionPane.showMessageDialog(this, "Belum ada nilai yang diinput.");
+            }
+
+        } catch (SQLException e) {
+            logger.log(java.util.logging.Level.SEVERE, "Gagal load transkip", e);
+            JOptionPane.showMessageDialog(this, "Error Database: " + e.getMessage());
+        } finally {
+            // 5. Tutup Resource
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+            } catch (SQLException e) {
+                // ignore
+            }
+        }
     }
 
     /**
@@ -45,8 +110,6 @@ public class TranskipNilai extends javax.swing.JFrame {
         PanelMenu1 = new javax.swing.JPanel();
         Home1 = new javax.swing.JButton();
         Jadwal1 = new javax.swing.JButton();
-        Registrasi1 = new javax.swing.JButton();
-        KartuStudi4 = new javax.swing.JButton();
         KartuStudi6 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -58,7 +121,7 @@ public class TranskipNilai extends javax.swing.JFrame {
 
         Nova1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Nova1.setForeground(new java.awt.Color(255, 153, 0));
-        Nova1.setText(": : SELAMAT DATANG MAHASISWA (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
+        Nova1.setText(": : 672024101 - NOVA PRAYOGA SAPUTRA (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
 
         Semester2.setForeground(new java.awt.Color(255, 153, 0));
         Semester2.setText(": : SEMESTER 1 TA 2025 - 2026");
@@ -86,25 +149,27 @@ public class TranskipNilai extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"", "", ""},
-                {"", "", ""},
-                {"", "", ""},
-                {"", "", ""},
-                {"", "", ""},
-                {"", "", ""},
-                {"", "", ""},
-                {"", "", "A"}
+
             },
             new String [] {
-                "NIM", "Nama", "Nilai"
+                "Kode MK", "Nam MK", "Ruangan", "Waktu", "SKS", "Hari ", "ID Dosen"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+        });
+        jTable1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jTable1AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -189,20 +254,6 @@ public class TranskipNilai extends javax.swing.JFrame {
             }
         });
 
-        Registrasi1.setText("Registrasi");
-        Registrasi1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Registrasi1ActionPerformed(evt);
-            }
-        });
-
-        KartuStudi4.setText("Kartu Studi");
-        KartuStudi4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KartuStudi4ActionPerformed(evt);
-            }
-        });
-
         KartuStudi6.setText("Transkip Nilai");
         KartuStudi6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,10 +268,8 @@ public class TranskipNilai extends javax.swing.JFrame {
             .addGroup(PanelMenu1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(PanelMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(KartuStudi4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(KartuStudi6, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
                     .addComponent(Jadwal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Registrasi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Home1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(81, Short.MAX_VALUE))
         );
@@ -230,14 +279,10 @@ public class TranskipNilai extends javax.swing.JFrame {
                 .addGap(64, 64, 64)
                 .addComponent(Home1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Registrasi1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Jadwal1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(KartuStudi6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(KartuStudi4)
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
@@ -355,23 +400,15 @@ public class TranskipNilai extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void Registrasi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registrasi1ActionPerformed
-        // TODO add your handling code here:
-        new Registrasi().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Registrasi1ActionPerformed
-
     private void Jadwal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jadwal1ActionPerformed
         // TODO add your handling code here:
         new Jadwal().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Jadwal1ActionPerformed
 
-    private void KartuStudi4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KartuStudi4ActionPerformed
-        // TODO add your handling code here:
-        new KartuStudi().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_KartuStudi4ActionPerformed
+    private void jTable1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable1AncestorAdded
+        load_transkip_langsung();
+    }//GEN-LAST:event_jTable1AncestorAdded
 
     private void KartuStudi6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KartuStudi6ActionPerformed
         // TODO add your handling code here:
@@ -383,11 +420,6 @@ public class TranskipNilai extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -395,12 +427,10 @@ public class TranskipNilai extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (Exception ex) {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(() -> new TranskipNilai().setVisible(true));
     }
 
@@ -410,13 +440,11 @@ public class TranskipNilai extends javax.swing.JFrame {
     private javax.swing.JLabel HomeIcon1;
     private javax.swing.JButton Jadwal1;
     private javax.swing.JLabel JadwalIcon;
-    private javax.swing.JButton KartuStudi4;
     private javax.swing.JButton KartuStudi6;
     private javax.swing.JLabel LogoSiasat;
     private javax.swing.JLabel Nova1;
     private javax.swing.JPanel PanelBio1;
     private javax.swing.JPanel PanelMenu1;
-    private javax.swing.JButton Registrasi1;
     private javax.swing.JLabel Semester2;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

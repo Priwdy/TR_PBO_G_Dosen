@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interface;
+import Controller.GantiPasswordController;
+import Model.AkunPengguna;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,13 +13,14 @@ package Interface;
  */
 public class GantiPassword extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GantiPassword.class.getName());
+    private final GantiPasswordController controller = new GantiPasswordController();
 
     /**
      * Creates new form GantiPassword
      */
     public GantiPassword() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -51,8 +55,6 @@ public class GantiPassword extends javax.swing.JFrame {
         PanelMenu1 = new javax.swing.JPanel();
         Home1 = new javax.swing.JButton();
         Jadwal1 = new javax.swing.JButton();
-        Registrasi1 = new javax.swing.JButton();
-        KartuStudi4 = new javax.swing.JButton();
         KartuStudi6 = new javax.swing.JButton();
         KartuStudi7 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -112,6 +114,11 @@ public class GantiPassword extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Simpan");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -227,20 +234,6 @@ public class GantiPassword extends javax.swing.JFrame {
             }
         });
 
-        Registrasi1.setText("Registrasi");
-        Registrasi1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Registrasi1ActionPerformed(evt);
-            }
-        });
-
-        KartuStudi4.setText("Kartu Studi");
-        KartuStudi4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KartuStudi4ActionPerformed(evt);
-            }
-        });
-
         KartuStudi6.setText("Transkip Nilai");
         KartuStudi6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -258,10 +251,8 @@ public class GantiPassword extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(PanelMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(KartuStudi7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(KartuStudi4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(KartuStudi6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Jadwal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Registrasi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Home1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(81, Short.MAX_VALUE))
         );
@@ -271,13 +262,9 @@ public class GantiPassword extends javax.swing.JFrame {
                 .addGap(64, 64, 64)
                 .addComponent(Home1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Registrasi1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Jadwal1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(KartuStudi6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(KartuStudi4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(KartuStudi7)
                 .addGap(41, 41, 41))
@@ -397,18 +384,6 @@ public class GantiPassword extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_Jadwal1ActionPerformed
 
-    private void Registrasi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registrasi1ActionPerformed
-        // TODO add your handling code here:
-        new Registrasi().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Registrasi1ActionPerformed
-
-    private void KartuStudi4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KartuStudi4ActionPerformed
-        // TODO add your handling code here:
-        new KartuStudi().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_KartuStudi4ActionPerformed
-
     private void KartuStudi6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KartuStudi6ActionPerformed
         // TODO add your handling code here:
         new TranskipNilai().setVisible(true);
@@ -421,28 +396,58 @@ public class GantiPassword extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String idUser = jTextField2.getText().trim();   // NIM/NID
+        String passLama = jTextField3.getText().trim(); // Password Lama
+        String passBaru = jTextField1.getText().trim(); // Password Baru
+        
+        // 2. Validasi Input di View
+        if (idUser.isEmpty() || passLama.isEmpty() || passBaru.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Semua kolom harus diisi!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        // 3. Bungkus data ke Model
+        AkunPengguna dataAkun = new AkunPengguna(idUser, passLama, passBaru);
+        
+        // 4. Kirim ke Controller dan terima status hasil
+        int status = controller.prosesGantiPassword(dataAkun);
+        
+        // 5. Respon berdasarkan status dari Controller
+        if (status == 1) {
+            JOptionPane.showMessageDialog(this, "Password berhasil diubah!\nSilakan login ulang.", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+            
+            // Bersihkan field
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            
+            // Kembali ke Login
+            new Login().setVisible(true);
+            this.dispose();
+            
+        } else if (status == 0) {
+            JOptionPane.showMessageDialog(this, "NIM/NID atau Password Lama salah!", "Gagal", JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Terjadi kesalahan sistem/database.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
+      try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(GantiPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(() -> new GantiPassword().setVisible(true));
     }
 
@@ -451,14 +456,12 @@ public class GantiPassword extends javax.swing.JFrame {
     private javax.swing.JButton Home1;
     private javax.swing.JLabel HomeIcon1;
     private javax.swing.JButton Jadwal1;
-    private javax.swing.JButton KartuStudi4;
     private javax.swing.JButton KartuStudi6;
     private javax.swing.JButton KartuStudi7;
     private javax.swing.JLabel LogoSiasat;
     private javax.swing.JLabel Nova1;
     private javax.swing.JPanel PanelBio1;
     private javax.swing.JPanel PanelMenu1;
-    private javax.swing.JButton Registrasi1;
     private javax.swing.JLabel Semester2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

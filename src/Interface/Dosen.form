@@ -149,7 +149,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="99" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value=": : SELAMAT DATANG DOSEN (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   "/>
+                <Property name="text" type="java.lang.String" value=": : DICKY PRASTYO M.KOM (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="Semester1">
@@ -583,7 +583,6 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="KartuStudi3" alignment="0" max="32767" attributes="0"/>
                               <Component id="Jadwal" alignment="0" max="32767" attributes="0"/>
                               <Component id="Registrasi" alignment="0" max="32767" attributes="0"/>
                               <Component id="Home" alignment="1" max="32767" attributes="0"/>
@@ -601,8 +600,6 @@
                           <Component id="Registrasi" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="Jadwal" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
-                          <Component id="KartuStudi3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -631,14 +628,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistrasiActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="KartuStudi3">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Lupa Password"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="KartuStudi3ActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
