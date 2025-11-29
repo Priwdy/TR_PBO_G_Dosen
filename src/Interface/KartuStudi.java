@@ -61,7 +61,7 @@ public class KartuStudi extends javax.swing.JFrame {
 
         Nova1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Nova1.setForeground(new java.awt.Color(255, 153, 0));
-        Nova1.setText(": : 672024101 - NOVA PRAYOGA SAPUTRA (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
+        Nova1.setText(": : SELAMAT DATANG MAHASISWA (FAKULTAS TEKNOLOGI INFORMASI - TEKNIK INFORMATIKA)   ");
 
         Semester2.setForeground(new java.awt.Color(255, 153, 0));
         Semester2.setText(": : SEMESTER 1 TA 2025 - 2026");

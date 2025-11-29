@@ -130,7 +130,7 @@ public class Admin extends javax.swing.JFrame {
 
         EmailDiky.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         EmailDiky.setForeground(java.awt.Color.white);
-        EmailDiky.setText("dikyprastyo@gmail.com");
+        EmailDiky.setText("priwidylingga@gmail.com");
 
         Alamat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Alamat.setForeground(new java.awt.Color(255, 255, 255));
