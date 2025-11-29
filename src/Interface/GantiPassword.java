@@ -53,9 +53,6 @@ public class GantiPassword extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         PanelMenu1 = new javax.swing.JPanel();
-        Home1 = new javax.swing.JButton();
-        Jadwal1 = new javax.swing.JButton();
-        KartuStudi6 = new javax.swing.JButton();
         KartuStudi7 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -220,27 +217,6 @@ public class GantiPassword extends javax.swing.JFrame {
         PanelMenu1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PanelMenu1.setForeground(new java.awt.Color(0, 0, 0));
 
-        Home1.setText("Home");
-        Home1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Home1ActionPerformed(evt);
-            }
-        });
-
-        Jadwal1.setText("Jadwal");
-        Jadwal1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jadwal1ActionPerformed(evt);
-            }
-        });
-
-        KartuStudi6.setText("Transkip Nilai");
-        KartuStudi6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KartuStudi6ActionPerformed(evt);
-            }
-        });
-
         KartuStudi7.setText("Lupa Password");
 
         javax.swing.GroupLayout PanelMenu1Layout = new javax.swing.GroupLayout(PanelMenu1);
@@ -249,23 +225,13 @@ public class GantiPassword extends javax.swing.JFrame {
             PanelMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMenu1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(PanelMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(KartuStudi7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(KartuStudi6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jadwal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Home1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(KartuStudi7)
                 .addContainerGap(81, Short.MAX_VALUE))
         );
         PanelMenu1Layout.setVerticalGroup(
             PanelMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMenu1Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(Home1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Jadwal1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(KartuStudi6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(KartuStudi7)
                 .addGap(41, 41, 41))
         );
@@ -372,24 +338,6 @@ public class GantiPassword extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Home1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Home1ActionPerformed
-        // TODO add your handling code here:
-        new Mahasiswa().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Home1ActionPerformed
-
-    private void Jadwal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jadwal1ActionPerformed
-        // TODO add your handling code here:
-        new Jadwal().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Jadwal1ActionPerformed
-
-    private void KartuStudi6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KartuStudi6ActionPerformed
-        // TODO add your handling code here:
-        new TranskipNilai().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_KartuStudi6ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         new Login().setVisible(true);
@@ -453,10 +401,7 @@ public class GantiPassword extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BebanSks1;
-    private javax.swing.JButton Home1;
     private javax.swing.JLabel HomeIcon1;
-    private javax.swing.JButton Jadwal1;
-    private javax.swing.JButton KartuStudi6;
     private javax.swing.JButton KartuStudi7;
     private javax.swing.JLabel LogoSiasat;
     private javax.swing.JLabel Nova1;
